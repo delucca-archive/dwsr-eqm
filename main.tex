@@ -1,0 +1,78 @@
+\author{Daniel De Lucca Fonseca}
+
+\documentclass[11pt]{article}
+\usepackage{float}
+\usepackage{url}
+\usepackage{epsfig}
+\usepackage[brazil, english]{babel}
+\usepackage[utf8]{inputenc}    
+\usepackage{csquotes}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{acronym}
+\usepackage[style=ieee]{biblatex}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\addbibresource{main.bib}
+\input{chapters/i-acronyms.tex}
+
+\special{papersize=8.5in,11in}
+\setlength{\textwidth}{6.5in} \setlength{\textheight}{9.0in}
+
+\setlength{\evensidemargin}{-.2in}
+\setlength{\oddsidemargin}{0.0in} \setlength{\topmargin}{-.4in}
+\setlength{\topmargin}{-.4in}
+\linespread{1.5}
+
+\begin{document}
+\include{abaco}
+
+\begin{titlepage} 
+
+    \begin{center} 
+        \large \textbf{UNIVERSITY OF CAMPINAS}\\
+        \large INSTITUTE OF COMPUTING\\
+        
+        \vspace{0.5cm}
+
+        \begin{minipage}[tl]{31mm}
+            \ABACO{1}{9}{6}{9}{1}
+        \end{minipage}
+
+        \vspace{0.3cm}
+        \textbf{Dwsr: Predicting memory usage of tensorial algorithms}
+        \vspace{0.2cm}
+
+        \begin{tabular}{rl}
+            \textbf{Student}: & Daniel De Lucca Fonseca \\
+            \textbf{Advisor}: & Prof. Edson Borin \\
+        \end{tabular}
+
+    \end{center}
+
+\input{chapters/0-abstract.tex}
+\end{titlepage} 
+
+%----------------CONTENT TABLE----------------------------------
+\setlength{\baselineskip}{0.1 cm}
+\pagenumbering{roman} \pagebreak
+\normalsize \tableofcontents \pagebreak
+\pagenumbering{arabic}
+
+\acresetall
+
+%---------------CHAPTERS---------------------------------------
+\input{chapters/1-introduction.tex}
+\input{chapters/2-background.tex}
+\input{chapters/3-related-work.tex}
+\input{chapters/4-research-proposal.tex}
+
+%--------------BIBLIOGRAPHY------------------------------------
+\begin{footnotesize}
+\printbibliography
+\end{footnotesize}
+
+\end{document}
