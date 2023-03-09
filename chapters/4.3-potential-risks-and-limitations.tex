@@ -1,0 +1,38 @@
+\subsection{Potential risks and limitations}
+\label{subsec:potential-risks-and-limitations}
+
+In this section, I will discuss the limitations of the proposed solution for predicting memory consumption of seismic algorithms using machine learning.
+
+\subsubsection{Sensibility towards too many control statements}
+
+A possible limitation for this solution is that it may not work if the algorithm has too many control statements.
+Depending on the structure of the algorithm, the amount of control statements may change the memory usage.
+
+This limitation can be ignored if the memory allocation of the algorithm happens before the control statements.
+On this scenario, even with control statements that change drastically the execution of the algorithm the memory usage will not change.
+
+Either way, all the seismic operators and machine learning models being used are tensorial algorithms, which means that they do not have too many control statements.
+Therefore, this possible limitation will not be a problem during the research.
+
+\subsubsection{Unpredictable bottlenecks}
+
+There are two possible memory bottlenecks in the proposed solution: CPU and GPU memory.
+Seismic operators are likely to be GPU-memory bounded, but I need to conduct experiments to verify this.
+
+If the algorithms can be both GPU-memory and CPU-memory bounded, then the proposed solution must be able to handle both scenarios.
+
+\subsubsection{Language-agnosticity}
+
+The proposed solution is currently focused on using Python since it is the language used for the seismic operators and DASK~\cite{dask} itself.
+
+Although Python is a popular language in the scientific community, it may not be the language of choice for all researchers.
+This solution may not be language-agnostic at the moment.
+However, in the future, I can improve the solution to accept algorithms from any language.
+
+In the case of strategy one~\ref{subsubsec:algorithm-specific-model}, I can improve the training structure to accept algorithms from any language.
+This can be done by allowing decoupling both the feature extraction, as well as the execution of the algorithm, from the training process.
+
+In the case of strategy two~\ref{subsubsec:generic-algorithm-model}, it is possible improve the feature-extraction part to allow more languages as well.
+Since the only difference between the two strategies is allowing to exract features from the source code, a specialized feature extractor per-language should be enough.
+
+
