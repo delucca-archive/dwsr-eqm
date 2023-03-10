@@ -1,7 +1,7 @@
 \subsection{Proposed solution}
 \label{subsec:proposed-solution}
 
-I see two possible solutions to optmize the block\_size parameter:
+I see two possible solutions to optimize the block\_size parameter:
 (i) I can create a model that would predict the ideal block\_size of algorithm based on the input data or
 (ii) I can create a model that would predict the memory usage of an algorithm based on the input data, and use it to determine the optimal block\_size.
 
@@ -17,16 +17,16 @@ The proposed solution is divided into two strategies:
 \label{subsubsec:algorithm-specific-model}
 
 The first and primary goal of this research is creating a machine learning model that can predict the memory consumption of a given algorithm given the input data.
-During this strategy, I will train a model for each algorithm, considering the seismic data's shape and size as the primary features for the prediction.
+For this strategy, I will train a model for each algorithm, considering the seismic data's shape and size as the primary features for the prediction.
 Since seismic dataset are usually normalized, I may also extract other features to improve the prediction, but such features are going to be defined during the exploration phase.
-I will start the exploration with polynomial model, since I belive it is suitable for the prediction, and the model's output would help us determine the optimal block\_size for each part of the graph.
+I will start the exploration with polynomial model, since I belive it is suitable for the prediction, and the model's output would help me to determine the optimal block\_size for each part of the graph.
 
 This approach's primary limitation is that it requires a new model for each seismic operator, but it allows us to predict the output size and shape, enabling us to compose a graph prediction.
 
 \subsubsection{Strategy two: Generic algorithm model}
 \label{subsubsec:generic-algorithm-model}
 
-Our secondary goal is to develop a model that is algorithm-agnostic.
+The secondary goal is to develop a model that is algorithm-agnostic.
 If the results of the first approach are optimistic, I may extract features from the source code itself to predict memory consumption accurately.
 I believe that the algorithm could extract relevant information, such as how the code author deals with memory management.
 Although I do not have a clear picture of the features that I could extract, I believe that this is a possible experiment for this research.

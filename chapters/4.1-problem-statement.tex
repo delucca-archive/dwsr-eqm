@@ -22,14 +22,19 @@ The third graph divides the data into a smaller number of parts, minimizing both
 % \end{figure}
 
 While executing the graph, the developer must manually set the block\_size parameter.
-Since Petrobras use subcomputers to execute those graphs, setting a large number may lead to memory issues causing a signifcant delay due the trial-and-error nature of the usual execution.
+Setting a large number may lead to memory issues and it causes a signifcant delay due the trial-and-error nature of the execution flow.
+Since Petrobras uses supercomputers to execute those graphs, this delay is even larger considering the time it takes to submit a job due to the queue waiting time.
+
 On the other hand, setting a small number may increase the execution time due to network overhead.
 Since Petrobras have a large number of graphs to execute, and each graph usually takes a long time to execute, I need to find a way to optimize the block\_size parameter.
 
 DASK~\cite{dask} provides an automatic chunking feature, but it relies on the chunk\_size parameter, which is a static parameter define prior to execution.
 Since the developer do need to define this parameter prior to the execution, they can't rely on DASK~\cite{dask} auto chunking feature to automatically split the data, but they can rely on the automatic chunking if they figure out the ideal chunk\_size prior to the execution.
 
+Figuring out the chunk\_size for algorithms that doesn't require a large working memory is easy, since the developer can set that to a percentagem of the available memory.
+But, some of seismic operators used by Petrobras genereates a large working memory during the graph execution, which makes it difficult to determine the ideal chunk\_size.
+
 Based on this assumption, if someone predicts the memory usage of the graph that person can use the DASK~\cite{dask} auto chunking feature to automatically split the data into the ideal number of chunks.
 Therefore, this research aims to develop a memory usage prediction model that can help us determine the optimal block\_size parameter during execution.
-This will help us optimize resource utilization and minimize waiting and execution time.
+This will help Petrobras to optimize resource utilization and minimize waiting and execution time.
 The model will provide a comprehensive understanding of memory usage patterns for different block sizes and contribute to the development of more efficient resource allocation strategies in large-scale clusters.

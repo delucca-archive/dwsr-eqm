@@ -21,7 +21,7 @@ Seismic operators are likely to be GPU-memory bounded, but I need to conduct exp
 
 If the algorithms can be both GPU-memory and CPU-memory bounded, then the proposed solution must be able to handle both scenarios.
 
-\subsubsection{Language-agnosticity}
+\subsubsection{Language-agnosticit} y
 
 The proposed solution is currently focused on using Python since it is the language used for the seismic operators and DASK~\cite{dask} itself.
 
@@ -29,10 +29,10 @@ Although Python is a popular language in the scientific community, it may not be
 This solution may not be language-agnostic at the moment.
 However, in the future, I can improve the solution to accept algorithms from any language.
 
-In the case of strategy one~\ref{subsubsec:algorithm-specific-model}, I can improve the training structure to accept algorithms from any language.
+In the case of strategy one, presented on section ~\ref{subsubsec:algorithm-specific-model}, I can improve the training structure to accept algorithms from any language.
 This can be done by allowing decoupling both the feature extraction, as well as the execution of the algorithm, from the training process.
 
-In the case of strategy two~\ref{subsubsec:generic-algorithm-model}, it is possible improve the feature-extraction part to allow more languages as well.
+In the case of strategy two, presented on section~\ref{subsubsec:generic-algorithm-model}, it is possible improve the feature-extraction part to allow more languages as well.
 Since the only difference between the two strategies is allowing to exract features from the source code, a specialized feature extractor per-language should be enough.
 
 
