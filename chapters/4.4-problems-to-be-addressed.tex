@@ -1,14 +1,37 @@
 \subsection{Problem to be addressed}
 \label{subsec:problems-to-be-addressed}
 
-In this section, we will outline the potential problems that we may encounter during our research and how we plan to address them.
+In this section, I will outline the potential problems that I may encounter during our research and how I plan to address them.
+Each problem is going to be presented as a subsection, with a brief description of the problem and how I plan to address it.
 
-1. How to measure memory usage:
-One of the primary challenges in our research is accurately measuring memory usage. This is particularly true for GPU memory, which may differ from CPU memory. We aim to explore different options to measure memory usage accurately. We plan to start by investigating if there is an API to measure GPU memory, and if not, we will explore common libraries that allow gathering memory consumption based on a specific process. We understand that the optimal approach would be to develop an API for this, but we will explore alternative options if necessary.
-2. Historical data requirements:
-Many of the current approaches require a significant amount of historical data to train the models. This is not feasible for our research, as it would be time-consuming to generate such data for algorithm-specific models. We aim to overcome this limitation by creating a proper discovery approach by merging reinforcement learning with Bayesian analysis. We plan to gather the minimal amount of data, even by executing the algorithm locally with a small amount of synthetic data, and then cover the exploration space for the input data for shapes and data with features we have never seen before. With this approach, we think we can have an algorithm that can learn while it is being used.
-3. Python's garbage collection:
-Python's garbage collector can pose a problem for us. Python uses reference-counting as its garbage collection strategy, and it is lazy, so it usually waits for the memory to be needed to clean. If our operators are CPU-memory-bounded, we may need to figure out how to deal with Python's garbage collector to gather the real memory usage. However, we will only need to address this issue depending on the results of our experiments.
-4. Graph execution:
-Another problem we may encounter is how to figure out the entire graph's memory requirements. While our proposed solution can help us find the amount of memory required for a specific algorithm, integrating multiple algorithms into a graph poses a challenge. We plan to address this issue by predicting not only the memory usage of the output of the algorithm but also for the features we're tracking. By having prior knowledge of the algorithms in the graph, we can compose a graph with the models using the output of the first model as the input data of the second one.
+\subsubsection{How to measure memory usage}
 
+One of the primary challenges in our research is accurately measuring memory usage.
+This is particularly true for GPU memory, which may differ from CPU memory.
+I aim to explore different options to measure memory usage accurately.
+
+I plan to start by investigating if there is an API to measure GPU memory, and if not, I will explore common libraries that allow gathering memory consumption based on a specific process.
+I understand that the optimal approach would be to use a specific API for this, since this would allow more flexibility for our tool, but I will explore alternative options if necessary.
+
+\subsubsection{Historical data requirements}
+
+Many of the current approaches require a significant amount of historical data to train the models.
+This is not feasible for our research, as it would be time-consuming to generate such data for algorithm-specific models.
+I aim to overcome this limitation by creating a proper discovery approach by merging reinforcement learning with Bayesian analysis.
+
+I plan to gather the minimal amount of data, even by executing the algorithm locally with a small amount of synthetic data, and then cover the exploration space for the input data for shapes and data with features the model have never seen before.
+With this approach, I think the model will be able to learn while it is being used, and it will be able to generalize to new data.
+
+\subsubsection{Python's garbage collection}
+
+Python's garbage collector can pose a problem for us.
+Python uses reference-counting as its garbage collection strategy, and it is lazy, so it usually waits for the memory to be needed to clean.
+If our operators are CPU-memory-bounded, I may need to figure out how to deal with Python's garbage collector to gather the real memory usage.
+However, I will only need to address this issue depending on the results of our experiments.
+
+\subsubsection{Graph execution}
+
+Another problem I may encounter is how to figure out the entire graph's memory requirements.
+While our proposed solution can help us find the amount of memory required for a specific algorithm, integrating multiple algorithms into a graph poses a challenge.
+I plan to address this issue by predicting not only the memory usage, but alos the output shape of the algorithm and its features.
+By having prior knowledge of the algorithms in the graph, I can compose a graph with the models using the output of the first model as the input data of the second one.
