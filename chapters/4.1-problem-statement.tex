@@ -16,10 +16,13 @@ The first graph shows the input data as the entire dataset, which requires a sig
 The second graph divides the data into thousands of small parts, reducing the memory requirement but adding network overhead.
 The third graph divides the data into a smaller number of parts, minimizing both network and memory requirements.
 
-% \begin{figure}[h]
-% \label{fig:block-size}
-% \includegraphics[width=8cm]{block_size.png}
-% \end{figure}
+\begin{figure}[h]
+\label{fig:block-size}
+\caption{Block size impact on memory and network usage}
+\resizebox{\textwidth}{!}{%
+\includegraphics{block_size.png}
+}
+\end{figure}
 
 While executing the graph, the developer must manually set the block\_size parameter.
 Setting a large number may lead to memory issues and it causes a signifcant delay due the trial-and-error nature of the execution flow.
