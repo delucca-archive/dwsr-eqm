@@ -35,6 +35,7 @@ Figuring out the chunk\_size for algorithms that doesn't require a large working
 But, some of seismic operators used by Petrobras genereates a large working memory during the graph execution, which makes it difficult to determine the ideal chunk\_size.
 
 Based on this assumption, if someone predicts the memory usage of the graph that person can use the DASK~\cite{dask} auto chunking feature to automatically split the data into the ideal number of chunks.
+Since DASF~\cite{dasf} uses DASK~\cite{dask} under the hood, the block\_size parameter on DASF~\cite{dasf} is equivalent to the chunk\_size parameter on DASK~\cite{dask}.
 Therefore, this research aims to develop a memory usage prediction model that can help us determine the optimal block\_size parameter during execution.
 This will help Petrobras to optimize resource utilization and minimize waiting and execution time.
 The model will provide a comprehensive understanding of memory usage patterns for different block sizes and contribute to the development of more efficient resource allocation strategies in large-scale clusters.
