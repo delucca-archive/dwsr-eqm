@@ -1,0 +1,40 @@
+\subsection{Research methodology}
+\label{subsec:research-methodology}
+
+In this section, I will describe the methodology I will follow to answer the proposed research.
+Each research questions is going be answered by a set of experiments.
+To organize the execution of the experiments, I will use the categories presented on section~\ref{subsec:research-questions}.
+
+\subsubsection{Feasibility}
+
+This experiment category aims to answer \textbf{RQ1}, \textbf{RQ2}, and \textbf{RQ3}.
+The goal is to understand the feasibility of our seismic operators and their main characteristics.
+I plan to start with a single experiment to figure out the proper way to gather memory usage metrics from both the CPU and GPU (RQ1).
+After this, I aim to have an experiment that will explore if our seismic operators are GPU-memory bounded or CPU-memory bounded (RQ2).
+Lastly, I will explore multiple executions of our seismic operators, trying to understand possible features we can extract from the inputs, not only the shape, but also other possible features that we can extract from the data (RQ3).
+
+\subsubsection{Accuracy}
+
+This experiment cateogry aims to answer \textbf{RQ4} and \textbf{RQ5}.
+The goal is to understand how reliable the results can be.
+I will first explore the behavior of the seismic operators, exploring how they use memory in a set of different synthetic executions (RQ4).
+Finally, I will try pushing our algorithms to the limit to check if, under extreme circumstances (like uncommon inputs), the algorithm can break or display an unpredictable memory-usage pattern (RQ5).
+
+\subsubsection{Applicability}
+
+The third, and last, experiment category is applicability, which aims to answer RQ6.
+The goal is to act as a pre-prototype experiment.
+I aim to explore reinforcement learning models and Bayesian analysis to understand how I can apply the results from the previous experiments to predict memory usage.
+
+\subsubsection{Prototype development}
+
+After we execute all the experiments, I will implement a prototype.
+The idea for that prototype is to act as a plugin for DASF~\cite{dasf} and use it as a contribution to the active Petrobras seismic project in our laboratory.
+The plugin can act not only to tune the input block\_size for every operator, but also as a decision heuristic for scheduling.
+
+\subsubsection{Research extension}
+
+Based on the results of all past experiments, I can focus on the second proposed solution.
+This part aims to explore the possibility of generalizing the developed machine learning model to be algorithm-agnostic.
+To implement this, I need to figure out how and which features to extract from the original source code.
+If this is possible, I can develop a generic model that can be used to predict memory usage for any seismic operator.
