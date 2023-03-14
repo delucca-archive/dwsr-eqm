@@ -1,4 +1,21 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Sit amet lorem
+Memory management is a crucial aspect of modern computer applications.
+Some problems, such as seismic processing, are particularly sensitive to the amount of available memory since even the most powerful supercomputers cannot execute a computing graph in a single node due to the large size of seismic data.
+To overcome this challenge, most seismic algorithms rely on data parallelism.
+
+For some algorithms, choosing the right data partitioning strategy is quite straightforward.
+On the other hand, the optimal strategy isn't so obvious for others, usually because they require a large amount of work memory.
+The latter is true for some seismic processing algorithms, therefore the data partitioning strategy is usually defined after a series of trials and errors.
+
+In this research proposal, I suggest exploring about a new data partitioning strategy for seismic processing algorithms.
+The proposed strategy is based on the \emph{memory footprint} of the algorithm, which is the amount of memory required to execute the algorithm.
+The process is divided into two main stages:
+(i) the \emph{memory footprint estimation} stage, where the memory footprint of the algorithm is estimated; and
+(ii) the \emph{data partitioning} stage, where the data is partitioned according to the estimated memory footprint.
+
+For the memory footprint estimation stage, I propose to use a machine learning model to predict the memory footprint of the algorithm.
+Most of the existing research to predict the memory footprint of an algorithm focus on predicting resource consumption from a scheduler's perspective, while no research has been conducted to predict it for a single algorithm.
+
+For the data partitioning stage, I propose to leverage DASK~\cite{dask} automatic chunking to partition the data.
