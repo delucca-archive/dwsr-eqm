@@ -1,33 +1,35 @@
 \subsection{Proposed solution}
 \label{subsec:proposed-solution}
 
-I see two possible solutions to optimize the block\_size parameter:
-(i) I can create a model that would predict the ideal block\_size of algorithm based on the input data or
-(ii) I can create a model that would predict the memory usage of an algorithm based on the input data, and use it to determine the optimal block\_size.
+The proposed solution is divided into two stages:
+(i) predicting the memory-footprint of an algorithm, and
+(ii) automating the data partitioning process.
+Each stage is presented as a subsection of this section.
 
-Although appproach (i) is more straightforward, it is limited only to the block\_size.
-Approach (ii), on the other hand, is broader and can be used not only to identify the block\_size, but also as an heuristic for other tasks like scheduling, resource allocation, and cloud cost estimates.
+\subsubsection{Predicting the memory-footprint of an algorithm}
 
-Based on this, I have decided to pursue approach (ii) and create a machine learning model that would predict the memory usage of an algorithm based on the input data. 
-While there are already alternatives available to predict memory consumption from the scheduler's perspective, no research has been conducted to predict memory consumption from an algorithmic perspective.
+Most seismic operators are tensorial algorithms.
+Due to this fact, we can assume that the memory footprint of an algorithm is proportional to the shape of the input data.
+Based on this, to predict the memory-footprint of an algorhtm I plan to create a machine learning model that would predict the memory usage of an algorithm based on the input data. 
 
-The proposed solution is divided into two strategies:
+The proposed solution can be executed in two different ways:
 
-\subsubsection{Strategy one: Algorithm-specific model}
-\label{subsubsec:algorithm-specific-model}
+\begin{enumerate}
+  \item \textbf{Algorithm-specific model:} train a model for each algorithm, considering the seismic data's shape and size as the primary features for the prediction.
+  \item \textbf{Generic algorithm model:} train a model that is algorithm-agnostic, considering the source code as also a feature for the prediction.
+\end{enumerate}
 
-The first and primary goal of this research is creating a machine learning model that can predict the memory consumption of a given algorithm given the input data.
-For this strategy, I will train a model for each algorithm, considering the seismic data's shape and size as the primary features for the prediction.
-Since seismic dataset are usually normalized, I may also extract other features to improve the prediction, but such features are going to be defined during the exploration phase.
-I will start the exploration with polynomial model, since I belive it is suitable for the prediction, and the model's output would help me to determine the optimal block\_size for each part of the graph.
+Although creating a generic algorithm model is more flexible, I plan to start by coding an algorithm-specific model to understand the problem better.
+While coding the model, I expect to find input features that are relevant tot he prediction.
+My initial hypothesis is that the input data's shape and size are the most relevant features, but I will experiment with other features to improve the prediction too.
 
-This approach's primary limitation is that it requires a new model for each seismic operator, but it allows us to predict the output size and shape, enabling us to compose a graph prediction.
+Depending on the results of the initial experiments to create an algorithm-specific model, I may pursue the generic algorithm model.
+This secondary goal is to develop a model that is algorithm-agnostic.
+I understand that the source code of the algorithm contais relevant information, such as how the code author deals with memory management.
+However, I do not have a clear picture of the features that I could extract from the source code, but I believe that this is a possible experiment for this phase of the research.
 
-\subsubsection{Strategy two: Generic algorithm model}
-\label{subsubsec:generic-algorithm-model}
+\subsubsection{Automating the data partitioning process}
 
-The secondary goal is to develop a model that is algorithm-agnostic.
-If the results of the first approach are optimistic, I may extract features from the source code itself to predict memory consumption accurately.
-I believe that the algorithm could extract relevant information, such as how the code author deals with memory management.
-Although I do not have a clear picture of the features that I could extract, I believe that this is a possible experiment for this research.
-However, this objective is secondary and will be pursued only if the results of the first approach are positive.
+The second stage of the proposed solution is to automate the data partitioning process.
+The goal is to create a DASF~\cite{dasf} plugin that can automatically set the optimal block\_size parameter during execution based on a machine learning model that can predict the memory-footprint of the algorithm.
+The plugin would be executed before the algorithm starts, and it would set the block\_size parameter based on the prediction of the model.

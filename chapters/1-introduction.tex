@@ -2,15 +2,18 @@
 \label{sec:introduction}
 
 Memory management is a crucial aspect of modern computer applications.
-Some problems, such as seismic processing, are particularly sensitive to the amount of available memory since even the most powerful supercomputers cannot execute a computing graph in a single node due to the large size of seismic data.
+Some problems, such as seismic processing, are particularly sensitive to the amount of available memory.
+Due to the large size of seismic data, even the most powerful supercomputers cannot execute a computing graph in a single node.
 To overcome this challenge, most seismic algorithms rely on data parallelism.
 
 For some algorithms, choosing the right data partitioning strategy is quite straightforward.
 On the other hand, the optimal strategy isn't so obvious for others, usually because they require a large amount of work memory.
 The latter is true for some seismic processing algorithms, therefore the data partitioning strategy is usually defined after a series of trials and errors.
+Although this approach is effective, it is time consuming and requires a lot of human effort.
 
-In this research proposal, I suggest exploring about a new data partitioning strategy for seismic processing algorithms.
-The proposed strategy is based on the \emph{memory footprint} of the algorithm, which is the amount of memory required to execute the algorithm.
+In this research proposal, I suggest exploring about a new ata partitioning strategy for data parallelism.
+The proposed strategy is based on the \emph{memory footprint} of the algorithm, which is the amount of memory required to execute it.
+This approach may be effective not only for seismic algorithms, but also for any other algorithm that has a predictable memory footprint.
 The process is divided into two main stages:
 (i) the \emph{memory footprint estimation} stage, where the memory footprint of the algorithm is estimated; and
 (ii) the \emph{data partitioning} stage, where the data is partitioned according to the estimated memory footprint.
@@ -19,3 +22,13 @@ For the memory footprint estimation stage, I propose to use a machine learning m
 Most of the existing research to predict the memory footprint of an algorithm focus on predicting resource consumption from a scheduler's perspective, while no research has been conducted to predict it for a single algorithm.
 
 For the data partitioning stage, I propose to leverage DASK~\cite{dask} automatic chunking to partition the data.
+DASK is a Python library that provides a high-level interface to parallelize Python code.
+Considering that we can estimate the memory usage, figuring out the optimal chunk size is a matter of finding the relationship between the amount of available memory and the memory footprint itself.
+
+During this research, I am planning to work with DASF~\cite{dasf} to implement the proposed strategy.
+DASF is a library created by the Discovery laboratory at UNICAMP to facilitate the development of seismic processing algorithms.
+
+The following sections are organized as follows.
+I start by presenting the background on section~\ref{sec:background}, explaining relevant concepts for this research.
+Then, I present the related work on section~\ref{sec:related-work}, where I discuss the existing research on memory usage estimation and resource-aware scheduling.
+Finally, I present the research proposal on section~\ref{sec:research-proposal}, where I describe the research plan and the expected results.
