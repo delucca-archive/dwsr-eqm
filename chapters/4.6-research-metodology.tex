@@ -9,9 +9,9 @@ To organize the execution of the experiments, I will use the categories presente
 
 This experiment category aims to answer \textbf{RQ1}, \textbf{RQ2}, \textbf{RQ3}, and \textbf{RQ4}.
 The goal is to understand the feasibility of our seismic operators and their main characteristics.
-I plan to start with an experiment to explore how DASF deals with automatic chunking (RQ1).
-Then, I will try to figure out the proper way to gather memory usage metrics from both the CPU and GPU (RQ2).
-After this, I aim to have an experiment that will explore if our seismic operators are GPU-memory bounded or CPU-memory bounded (RQ3).
+I plan to start with an experiment to explore how \ac{DASF}~\cite{dasf} deals with automatic chunking (RQ1).
+Then, I will try to figure out the proper way to gather memory usage metrics from both the \ac{CPU} and \ac{GPU} (RQ2).
+After this, I aim to have an experiment that will explore if our seismic operators are \ac{GPU}-memory bounded or \ac{CPU} memory bounded (RQ3).
 Lastly, I will explore multiple executions of our seismic operators, trying to understand possible features we can extract from the inputs, not only the shape, but also other possible features that we can extract from the data (RQ4).
 
 \subsubsection{Accuracy}
@@ -30,7 +30,7 @@ I aim to explore reinforcement learning models and Bayesian analysis to understa
 \subsubsection{Prototype development}
 
 After we execute all the experiments, I will implement a prototype.
-The idea for that prototype is to act as a plugin for DASF~\cite{dasf} and use it as a contribution to the active Petrobras seismic project in our laboratory.
+The idea for that prototype is to act as a plugin for \ac{DASF}~\cite{dasf} and use it as a contribution to the active Petrobras seismic project in our laboratory.
 The plugin can act not only to tune the input block\_size for every operator, but also as a decision heuristic for scheduling.
 
 \subsubsection{Research extension}

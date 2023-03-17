@@ -7,10 +7,10 @@ Each problem is going to be presented as a subsection, with a brief description 
 \subsubsection{How to measure memory usage}
 
 One of the primary challenges in our research is accurately measuring memory usage.
-This is particularly true for GPU memory, which may differ from CPU memory.
+This is particularly true for \ac{GPU} memory, which may differ from \ac{CPU} memory.
 I aim to explore different options to measure memory usage accurately.
 
-I plan to start by investigating if there is an API to measure GPU memory, and if not, I will explore common libraries that allow gathering memory consumption based on a specific process.
+I plan to start by investigating if there is an API to measure \ac{GPU} memory, and if not, I will explore common libraries that allow gathering memory consumption based on a specific process.
 I understand that the optimal approach would be to use a specific API for this, since this would allow more flexibility for our tool, but I will explore alternative options if necessary.
 
 \subsubsection{Historical data requirements}
@@ -26,7 +26,7 @@ With this approach, I think the model will be able to learn while it is being us
 
 Python's garbage collector can pose a problem for us.
 Python uses reference-counting as its garbage collection strategy, and it is lazy, so it usually waits for the memory to be needed to clean.
-If our operators are CPU-memory-bounded, I may need to figure out how to deal with Python's garbage collector to gather the real memory usage.
+If our operators are \ac{CPU} memory bounded, I may need to figure out how to deal with Python's garbage collector to gather the real memory usage.
 However, I will only need to address this issue depending on the results of our experiments.
 
 \subsubsection{Graph execution}

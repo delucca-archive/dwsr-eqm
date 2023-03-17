@@ -16,14 +16,14 @@ Therefore, this possible limitation will not be a problem during the research.
 
 \subsubsection{Unpredictable bottlenecks}
 
-There are two possible memory bottlenecks in the proposed solution: CPU and GPU memory.
-Seismic operators are likely to be GPU-memory bounded, but I need to conduct experiments to verify this.
+There are two possible memory bottlenecks in the proposed solution: \ac{CPU} and \ac{GPU} memory.
+Seismic operators are likely to be \ac{GPU}-memory bounded, but I need to conduct experiments to verify this.
 
-If the algorithms can be both GPU-memory and CPU-memory bounded, then the proposed solution must be able to handle both scenarios.
+If the algorithms can be both \ac{GPU} memory and \ac{CPU} memory bounded, then the proposed solution must be able to handle both scenarios.
 
 \subsubsection{Language-agnosticity}
 
-The proposed solution is currently focused on using Python since it is the language used for the seismic operators and DASK~\cite{dask} itself.
+The proposed solution is currently focused on using Python since it is the language used for the seismic operators and Dask~\cite{dask} itself.
 
 Although Python is a popular language in the scientific community, it may not be the language of choice for all researchers.
 This solution may not be language-agnostic at the moment.
@@ -37,9 +37,9 @@ Since the only difference between the two strategies is allowing to exract featu
 
 \subsubsection{DASK\'s memory management}
 
-Since DASF~\cite{dasf} uses DASK~\cite{dask} under the hood, I need to understand how DASK manages memory.
-As far as my initial research went, DASK has an automatic chunking feature that deals with executing the proper data partitioning as long as the developer can define the maximum chunk size in bytes.
+Since \ac{DASF}~\cite{dasf} uses Dask~\cite{dask} under the hood, I need to understand how Dask~\cite{dask} manages memory.
+As far as my initial research went, Dask~\cite{dask} has an automatic chunking feature that deals with executing the proper data partitioning as long as the developer can define the maximum chunk size in bytes.
 
 This feature seems promising, and it may solve most of the challenges related to automatic data partitioning.
 But, I may need to conduct proper experiments to understand exactly how this feature works and what are its limitations.
-Depending on the results of such experiments, I may need to adapt the proposed solution to work with DASK's memory management.
+Depending on the results of such experiments, I may need to adapt the proposed solution to work with Dask's~\cite{dask} memory management.

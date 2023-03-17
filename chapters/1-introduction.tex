@@ -21,12 +21,12 @@ The process is divided into two main stages:
 For the memory footprint estimation stage, I propose to use a machine learning model to predict the memory footprint of the algorithm.
 Most of the existing research to predict the memory footprint of an algorithm focus on predicting resource consumption from a scheduler's perspective, while no research has been conducted to predict it for a single algorithm.
 
-For the data partitioning stage, I propose to leverage DASK~\cite{dask} automatic chunking to partition the data.
-DASK is a Python library that provides a high-level interface to parallelize Python code.
+For the data partitioning stage, I propose to leverage Dask~\cite{dask} automatic chunking to partition the data.
+Dask~\cite{dask} is a Python library that provides a high-level interface to parallelize Python code.
 Considering that we can estimate the memory usage, figuring out the optimal chunk size is a matter of finding the relationship between the amount of available memory and the memory footprint itself.
 
-During this research, I am planning to work with DASF~\cite{dasf} to implement the proposed strategy.
-DASF is a library created by the Discovery laboratory at UNICAMP to facilitate the development of seismic processing algorithms.
+During this research, I am planning to work with \ac{DASF}~\cite{dasf} to implement the proposed strategy.
+\ac{DASF}~\cite{dasf} is a library created by the Discovery laboratory at \ac{UNICAMP} to facilitate the development of seismic processing algorithms.
 
 The following sections are organized as follows.
 I start by presenting the background on section~\ref{sec:background}, explaining relevant concepts for this research.
