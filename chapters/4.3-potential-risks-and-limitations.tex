@@ -1,7 +1,7 @@
 \subsection{Potential risks and limitations}
 \label{subsec:potential-risks-and-limitations}
 
-In this section, I will discuss the limitations of the proposed solution for predicting memory consumption of seismic algorithms using machine learning.
+In this section, I will discuss the limitations of the proposed solution for both predicting memory consumption, as well as automatically partitioning the data.
 
 \subsubsection{Sensibility towards too many control statements}
 
@@ -35,4 +35,11 @@ This can be done by allowing decoupling both the feature extraction, as well as 
 In the case of strategy two, presented on section~\ref{subsubsec:generic-algorithm-model}, it is possible improve the feature-extraction part to allow more languages as well.
 Since the only difference between the two strategies is allowing to exract features from the source code, a specialized feature extractor per-language should be enough.
 
+\subsubsection{DASK\'s memory management}
 
+Since DASF~\cite{dasf} uses DASK~\cite{dask} under the hood, I need to understand how DASK manages memory.
+As far as my initial research went, DASK has an automatic chunking feature that deals with executing the proper data partitioning as long as the developer can define the maximum chunk size in bytes.
+
+This feature seems promising, and it may solve most of the challenges related to automatic data partitioning.
+But, I may need to conduct proper experiments to understand exactly how this feature works and what are its limitations.
+Depending on the results of such experiments, I may need to adapt the proposed solution to work with DASK's memory management.

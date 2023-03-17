@@ -7,22 +7,23 @@ To organize the execution of the experiments, I will use the categories presente
 
 \subsubsection{Feasibility}
 
-This experiment category aims to answer \textbf{RQ1}, \textbf{RQ2}, and \textbf{RQ3}.
+This experiment category aims to answer \textbf{RQ1}, \textbf{RQ2}, \textbf{RQ3}, and \textbf{RQ4}.
 The goal is to understand the feasibility of our seismic operators and their main characteristics.
-I plan to start with a single experiment to figure out the proper way to gather memory usage metrics from both the CPU and GPU (RQ1).
-After this, I aim to have an experiment that will explore if our seismic operators are GPU-memory bounded or CPU-memory bounded (RQ2).
-Lastly, I will explore multiple executions of our seismic operators, trying to understand possible features we can extract from the inputs, not only the shape, but also other possible features that we can extract from the data (RQ3).
+I plan to start with an experiment to explore how DASF deals with automatic chunking (RQ1).
+Then, I will try to figure out the proper way to gather memory usage metrics from both the CPU and GPU (RQ2).
+After this, I aim to have an experiment that will explore if our seismic operators are GPU-memory bounded or CPU-memory bounded (RQ3).
+Lastly, I will explore multiple executions of our seismic operators, trying to understand possible features we can extract from the inputs, not only the shape, but also other possible features that we can extract from the data (RQ4).
 
 \subsubsection{Accuracy}
 
-This experiment cateogry aims to answer \textbf{RQ4} and \textbf{RQ5}.
+This experiment cateogry aims to answer \textbf{RQ5} and \textbf{RQ6}.
 The goal is to understand how reliable the results can be.
-I will first explore the behavior of the seismic operators, exploring how they use memory in a set of different synthetic executions (RQ4).
-Finally, I will try pushing our algorithms to the limit to check if, under extreme circumstances (like uncommon inputs), the algorithm can break or display an unpredictable memory-usage pattern (RQ5).
+I will first explore the behavior of the seismic operators, exploring how they use memory in a set of different synthetic executions (RQ5).
+Finally, I will try pushing our algorithms to the limit to check if, under extreme circumstances (like uncommon inputs), the algorithm can break or display an unpredictable memory-usage pattern (RQ6).
 
 \subsubsection{Applicability}
 
-The third, and last, experiment category is applicability, which aims to answer RQ6.
+The third, and last, experiment category is applicability, which aims to answer RQ7.
 The goal is to act as a pre-prototype experiment.
 I aim to explore reinforcement learning models and Bayesian analysis to understand how I can apply the results from the previous experiments to predict memory usage.
 
