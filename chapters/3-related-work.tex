@@ -1,4 +1,26 @@
 \section{Related Work}
 \label{sec:related-work}
 
-Lorem ipsum
+\input{chapters/3.1-resource-aware-scheduling.tex}
+\input{chapters/3.2-resource-aware-execution.tex}
+
+\begin{table}[ht]
+  \caption{Related work comparison table}
+  \label{tab:related-work-comparison}
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{} | p{0.11\linewidth} | p{0.5\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} | @{}}
+      \toprule
+      \textbf{Work}        & \textbf{Used features}                                       & \textbf{Prerequisites}                   & \textbf{Purpose}              \\ \midrule
+      \cite{duplyakin2018} & Input data and hardware characteristics                      & None                                     & Predict resource consumption  \\ \midrule
+      \cite{tang2021}      & Memory usage history and executed query                      & Query logs                               & Query resource usage estimate \\ \midrule
+      \cite{rodrigues2016} & Memory usage history, user data, and job data                & Past executions                          & Scheduler resource allocation \\ \midrule
+      \cite{mehmood2018}   & Memory usage history and job data                            & Past executions                          & Scheduler resource allocation \\ \midrule
+      \cite{ferreira2013}  & Memory usage history and input structure                     & Past executions                          & Scheduler resource allocation \\ \midrule
+      \cite{phung2021}     & Resources being used and user-provided information           & Trial and error                          & Scheduler resource allocation \\ \midrule
+      \cite{fang2018}      & Resources being used and memory pressure                     & Resource competition                     & Scheduler resource allocation \\ \midrule
+      \cite{goponenko2020} & Memory usage estimate                                        & None                                     & Resource-aware scheduling     \\ \midrule
+      \cite{shealy2021}    & Memory usage history, input structure, and run command flags & Past executions and code instrumentation & Recurrent task scheduling     \\ \midrule
+      This work            & Input structure                                              & None                                     & Parallelism optimization      \\ \midrule
+    \end{tabular}
+  }
+\end{table}

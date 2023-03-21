@@ -1,0 +1,23 @@
+\subsection{Resource-aware scheduling}
+\label{subsec:resource-aware-scheduling}
+
+Pupykina et al.~\cite{pupykina2019} presets a nice overview of the memory management field until 2019.
+According to the authors, the main challenge on predicting memory usage is the lack of knowledge of the memory access patterns within an application.
+Most of current research focus on using machine learning techniques to bypass this problem.
+Although this approach has been successful, it is only capable of predicting the overall resource usage of a whole workload, and not the resource usage of a single task.
+
+The observation made by Pupykina et al.~\cite{pupykina2019} is visible while evaluating recent work.
+Most of the research done so far focus only on the scheduler perspective, using memory usage history to predict the expected resource requirements of a given cluster.
+
+E. R. Rodrigues et al.~\cite{rodrigues2016} presents a machine learning model that can easily be integrated into a scheduler to predict the resource requirements of a given task.
+Their work is mainly focused on the scheduler perspective, since it uses past executions by the user to predict the resource requirements for future jobs.
+While submiting a new job to the cluster, the user must provide a manual estimate.
+This estimate is used by E. R. Rodrigues et al.~\cite{rodrigues2016} alongside with past executions to predict the actual resource requirements of the job.
+Although effective, this approach is vulnerable to spurious correlations, since past executions from other jobs by the same user can influence the prediction.
+
+T. Mehmood et al.~\cite{mehmood2018} presents an ensemble machine learning model that can predict the expected resource usage of a cloud provider.
+Like E. R. Rodrigues et al.~\cite{rodrigues2016}, T. Mehmood et al.~\cite{mehmood2018} uses past executions to predict the resource requirements at a given time.
+
+% Althoug 
+% B. T. Shealy et al.~\cite{shealy2021} presents a machine learning model that can consider both the memory usage history, as well as which run command flags were used to execute a given task, to predict the resource requirements of a given task.
+% Their work is mainly focused on recurrent tasks, 

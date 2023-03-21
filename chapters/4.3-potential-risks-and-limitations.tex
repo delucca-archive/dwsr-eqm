@@ -29,13 +29,13 @@ Although Python is a popular language in the scientific community, it may not be
 This solution may not be language-agnostic at the moment.
 However, in the future, I can improve the solution to accept algorithms from any language.
 
-In the case of strategy one, presented on section ~\ref{subsubsec:algorithm-specific-model}, I can improve the training structure to accept algorithms from any language.
+In the case of the algorithm-specific model, I can improve the training structure to accept algorithms from any language.
 This can be done by allowing decoupling both the feature extraction, as well as the execution of the algorithm, from the training process.
 
-In the case of strategy two, presented on section~\ref{subsubsec:generic-algorithm-model}, it is possible improve the feature-extraction part to allow more languages as well.
+In the case of the generic algorithm model, it is possible improve the feature-extraction part to allow more languages as well.
 Since the only difference between the two strategies is allowing to exract features from the source code, a specialized feature extractor per-language should be enough.
 
-\subsubsection{DASK\'s memory management}
+\subsubsection{DASK's memory management}
 
 Since \ac{DASF}~\cite{dasf} uses Dask~\cite{dask} under the hood, I need to understand how Dask~\cite{dask} manages memory.
 As far as my initial research went, Dask~\cite{dask} has an automatic chunking feature that deals with executing the proper data partitioning as long as the developer can define the maximum chunk size in bytes.

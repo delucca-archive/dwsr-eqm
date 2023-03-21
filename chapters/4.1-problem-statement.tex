@@ -11,17 +11,17 @@ To facilitate this process, our laboratory implemented a framework called \ac{DA
 \ac{DASF}~\cite{dasf} has an input parameter called \textbf{block\_size} that defines the size of each seismic block used during data parallelism.
 However, setting this parameter can be challenging because it required finding the optimal relationship between it and the network overhead caused by it.
 
-To illustrate this challenge, I present image~\ref{fig:block\_size} which contains three computing graphs receiving input data from a seismic dataset.
+To illustrate this challenge, I present image~\ref{fig:block-size} which contains three computing graphs receiving input data from a seismic dataset.
 The first graph shows the input data as the entire dataset, which requires a significant amount of memory to execute.
 The second graph divides the data into thousands of small parts, reducing the memory requirement but adding network overhead.
 The third graph divides the data into a smaller number of parts, minimizing both network and memory requirements.
 
-\begin{figure}[h]
-\label{fig:block-size}
-\caption{Block size impact on memory and network usage}
-\resizebox{\textwidth}{!}{%
-\includegraphics{block_size.png}
-}
+\begin{figure}[ht]
+  \caption{Block size impact on memory and network usage}
+  \label{fig:block-size}
+  \resizebox{\textwidth}{!}{%
+    \includegraphics{block_size.png}
+  }
 \end{figure}
 
 While executing the graph, the developer must manually set the block\_size parameter.
