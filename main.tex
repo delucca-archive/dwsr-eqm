@@ -19,6 +19,8 @@
 \usepackage{caption} 
 \captionsetup[table]{skip=10pt}
 
+\input{eb-macros}
+
 \addbibresource{main.bib}
 \input{acronyms.tex}
 
@@ -46,7 +48,7 @@
         \end{minipage}
 
         \vspace{0.3cm}
-        \textbf{Dwsr: Predicting the memory usage of tensorial algorithms}
+        \textbf{Efficient Memory Management in Data Parallel Computing: A Chunk Optimization Technique}
         \vspace{0.2cm}
 
         \begin{tabular}{rl}
@@ -60,14 +62,6 @@
 \end{titlepage} 
 
 %----------------MACROS-----------------------------------------
-
-\newcommand{\EB}[1]{{\bf \textcolor{red}{(EB: #1)}}}
-\newcommand{\EBH}[1]{\hl{#1}}
-\newcommand{\EBC}[2]{\EBH{#1} \EB{#2}}
-\newcommand{\EBADD}[1]{{\textcolor{red}{#1}}}
-\newcommand{\EBRM}[1]{{\textcolor{lightgray}{(#1)}}}
-\newcommand{\EBRP}[2]{\EBRM{#1}\EBADD{#2}}
-\newcommand{\EBRPD}[2]{#1 \EB{#1 $\rightarrow$ #2?}}
 
 \newcommand{\DF}[1]{{\bf \textcolor{blue}{(DF: #1)}}}
 \newcommand{\DFH}[1]{\hl{#1}}

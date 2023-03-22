@@ -3,15 +3,16 @@
 
 Memory management is a crucial aspect of modern computer applications.
 Some problems, such as seismic processing, are particularly sensitive to the amount of available memory.
-Due to the large size of seismic data, even the most powerful supercomputers cannot execute a computing graph in a single node.
-To overcome this challenge, most seismic algorithms rely on data parallelism.
+Due to the large size of seismic data, even the most powerful supercomputers cannot store the whole dataset on the memory while processing it, hence, this kind of data is usually partitioned and processed in chunks.
 
 For some algorithms, choosing the right data partitioning strategy is quite straightforward.
 On the other hand, the optimal strategy isn't so obvious for others, usually because they require a large amount of work memory.
 The latter is true for some seismic processing algorithms, therefore the data partitioning strategy is usually defined after a series of trials and errors.
 Although this approach is effective, it is time consuming and requires a lot of human effort.
 
-In this research proposal, I suggest exploring about a new ata partitioning strategy for data parallelism.
+In order to simplify the data partitioning strategy, some frameworks like Dask~\cite{dask} 
+
+In this research proposal, I suggest exploring about a new partitioning strategy for data parallelism.
 The proposed strategy is based on the \emph{memory footprint} of the algorithm, which is the amount of memory required to execute it.
 This approach may be effective not only for seismic algorithms, but also for any other algorithm that has a predictable memory footprint.
 The process is divided into two main stages:

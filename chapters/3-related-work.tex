@@ -1,8 +1,12 @@
 \section{Related Work}
 \label{sec:related-work}
 
+\EB{Daniel, quando uma seção tem diversas subseções, sempre que possível, é bom colocar uma pequena introdução à seção. Talvez algo com: In this section we first discuss the existing research on resource-aware scheduling (Section~\ref{subsec:resource-aware-scheduling}), then we discuss ..., finally, we present a comparison table that summarizes our main findings.} 
+
 \input{chapters/3.1-resource-aware-scheduling.tex}
 \input{chapters/3.2-resource-aware-execution.tex}
+
+\EB{Daniel, todos estes trabalhos preveem consumo de memória? Se for o caso, basta mencionar no texto, caso contrário, talvez seja bom adicionar uma coluna que indique o que está sendo predito}
 
 \begin{table}[ht]
   \caption{Related work comparison table}
@@ -20,7 +24,7 @@
       \cite{fang2018}      & Resources being used and memory pressure                     & Resource competition                     & Scheduler resource allocation \\ \midrule
       \cite{goponenko2020} & Memory usage estimate                                        & None                                     & Resource-aware scheduling     \\ \midrule
       \cite{shealy2021}    & Memory usage history, input structure, and run command flags & Past executions and code instrumentation & Recurrent task scheduling     \\ \midrule
-      This work            & Input structure                                              & None                                     & Parallelism optimization      \\ \midrule
+      This work            & Input structure \EB{Input data shape?}                       & None                                     & Parallelism optimization      \\ \midrule
     \end{tabular}
   }
 \end{table}

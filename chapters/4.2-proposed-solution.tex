@@ -9,23 +9,24 @@ Each stage is presented as a subsection of this section.
 \subsubsection{Predicting the memory-footprint of an algorithm}
 
 Most seismic operators are tensorial algorithms.
+\EB{Daniel, como você tem usado bastante o termo seismic operators, acho bom definí-lo na seção de background. Talvez seja bom deixar claro lá também o que você quer dizer com memory footprint.}
 Due to this fact, we can assume that the memory footprint of an algorithm is proportional to the shape of the input data.
-Based on this, to predict the memory-footprint of an algorhtm I plan to create a machine learning model that would predict the memory usage of an algorithm based on the input data. 
+Based on this, to predict the memory-footprint of an algorithm I plan to create a machine learning model that would predict the memory usage of an algorithm based on the input data. 
 
 The proposed solution can be executed in two different ways:
 
 \begin{enumerate}
-  \item \textbf{Algorithm-specific model:} train a model for each algorithm, considering the seismic data's shape and size as the primary features for the prediction.
+  \item \textbf{Algorithm-specific model:} train a model for each algorithm, considering \EBC{the seismic data's}{it's input parameters'} shape and size as the primary features for the prediction.
   \item \textbf{Generic algorithm model:} train a model that is algorithm-agnostic, considering the source code as also a feature for the prediction.
 \end{enumerate}
 
 Although creating a generic algorithm model is more flexible, I plan to start by coding an algorithm-specific model to understand the problem better.
-While coding the model, I expect to find input features that are relevant tot he prediction.
+While coding the model, I expect to find input features that are relevant to he prediction.
 My initial hypothesis is that the input data's shape and size are the most relevant features, but I will experiment with other features to improve the prediction too.
 
 Depending on the results of the initial experiments to create an algorithm-specific model, I may pursue the generic algorithm model.
 This secondary goal is to develop a model that is algorithm-agnostic.
-I understand that the source code of the algorithm contais relevant information, such as how the code author deals with memory management.
+I understand that the source code of the algorithm contains relevant information, such as how the code author deals with memory management.
 However, I do not have a clear picture of the features that I could extract from the source code, but I believe that this is a possible experiment for this phase of the research.
 
 \subsubsection{Automating the data partitioning process}
