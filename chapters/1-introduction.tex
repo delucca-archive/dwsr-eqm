@@ -3,33 +3,25 @@
 
 Memory management is a crucial aspect of modern computer applications.
 Some problems, such as seismic processing, are particularly sensitive to the amount of available memory.
-Due to the large size of seismic data, even the most powerful supercomputers cannot store the whole dataset on the memory while processing it, hence, this kind of data is usually partitioned and processed in chunks.
+Due to the large size of seismic data, even the most powerful supercomputers can not store the whole dataset on the memory while processing it, hence, this kind of data is usually partitioned and processed in chunks.
 
-For some algorithms, choosing the right data partitioning strategy is quite straightforward.
-On the other hand, the optimal strategy isn't so obvious for others, usually because they require a large amount of work memory.
+For some algorithms, choosing the right data partitioning strategy is quite straightforward, since some frameworks, like Dask~\cite{dask}, provides automatic chunking.
+On the other hand, the optimal strategy is not so obvious for others, usually because they require a large amount of work memory.
+For such algorithms, the amount of used memory is not limited by the size of the input data, since they may require additional memory to store intermediate results.
 The latter is true for some seismic processing algorithms, therefore the data partitioning strategy is usually defined after a series of trials and errors.
-Although this approach is effective, it is time consuming and requires a lot of human effort.
 
-In order to simplify the data partitioning strategy, some frameworks like Dask~\cite{dask} 
+In this research proposal, I suggest the creation of an efficient data partitioning strategy for data parallelism.
+The proposed strategy is based on the memory footprint of the algorithm, which is the amount of memory required to execute it.
+This approach may be effective not only for seismic algorithms, but also for any other algorithm that has a predictable memory usage.
 
-In this research proposal, I suggest exploring about a new partitioning strategy for data parallelism.
-The proposed strategy is based on the \emph{memory footprint} of the algorithm, which is the amount of memory required to execute it.
-This approach may be effective not only for seismic algorithms, but also for any other algorithm that has a predictable memory footprint.
-The process is divided into two main stages:
-(i) the \emph{memory footprint estimation} stage, where the memory footprint of the algorithm is estimated; and
-(ii) the \emph{data partitioning} stage, where the data is partitioned according to the estimated memory footprint.
-
-For the memory footprint estimation stage, I propose to use a machine learning model to predict the memory footprint of the algorithm.
-Most of the existing research to predict the memory footprint of an algorithm focus on predicting resource consumption from a scheduler's perspective, while no research has been conducted to predict it for a single algorithm.
-
-For the data partitioning stage, I propose to leverage Dask~\cite{dask} automatic chunking to partition the data.
-Dask~\cite{dask} is a Python library that provides a high-level interface to parallelize Python code.
-Considering that we can estimate the memory usage, figuring out the optimal chunk size is a matter of finding the relationship between the amount of available memory and the memory footprint itself.
+The proposal is based on discovering the relationship of the input data shape and the memory footprint of the algorithm.
+By discovering this relationship, we can define the optimal chunk size for the amount of available memory on the worker.
+This tool can be used by frameworks like Dask~\cite{dask} to enhance their automatic chunking strategy, leading to a more efficient data partitioning.
 
 During this research, I am planning to work with \ac{DASF}~\cite{dasf} to implement the proposed strategy.
-\ac{DASF}~\cite{dasf} is a library created by the Discovery laboratory at \ac{UNICAMP} to facilitate the development of seismic processing algorithms.
+\ac{DASF}~\cite{dasf} is a library based on Dask~\cite{dask} and created by the Discovery laboratory at \ac{UNICAMP} to simplify the development of seismic processing algorithms.
 
 The following sections are organized as follows.
 I start by presenting the background on section~\ref{sec:background}, explaining relevant concepts for this research.
-Then, I present the related work on section~\ref{sec:related-work}, where I discuss the existing research on memory usage estimation and resource-aware scheduling.
+Then, I present the related work on section~\ref{sec:related-work}, where I discuss the existing research on memory usage estimation.
 Finally, I present the research proposal on section~\ref{sec:research-proposal}, where I describe the research plan and the expected results.

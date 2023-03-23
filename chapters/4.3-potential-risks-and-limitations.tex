@@ -3,21 +3,20 @@
 
 In this section, I will discuss the limitations of the proposed solution for both predicting memory consumption, as well as automatically partitioning the data.
 
-\subsubsection{Sensibility towards too many control statements}
+\subsubsection{Memory usage variance based on the input data}
 
-A possible limitation for this solution is that it may not work if the algorithm has too many control statements.
-\EB{Daniel, penso que o problema não é a quantidade de sentenças condicionais, mas sim a influência que elas têm nos comandos de alocação de memória e na dependência que elas têm no valor dos dados de entrada, em vez do shape. Note que se tivermos um único If que controla a alocação (ou não) de memória, ele traz muito mais desafios do que diversos ifs que controlam a execução de comandos que não afetam o consumo de memória.}
-Depending on the structure of the algorithm, the amount of control statements may change the memory usage.
+A possible limitation for this solution is that it may not work if the algorithm structure contains control statements that drastically change the memory usage of the algorithm.
+For example, if the algorithm's memory usage varies depending on the data itself, then the proposed solution may not work.
 
-This limitation can be ignored if the memory allocation of the algorithm happens before the control statements. 
-On this scenario, even with control statements that change drastically the execution of the algorithm the memory usage will not change. \EB{Seria legal mostrar um pequeno exemplo de pseudocódigo (de preferência de cálculo de atributos sísmicos) que ilustra este cenário.}
+It is important to mention that this limitation only happens if the control statement affects the memory allocation directly.
+Even if the algorithm has many control statements that change the execution flow drastically, this limitation can be ignored if the memory allocation of the algorithm happens before those. 
 
-Either way, all the seismic operators and machine learning models being used are tensorial algorithms, which means that they do not have too many control statements. \EB{They may not have lots of ifs, by they have loops, which are algo control flow statements.}
-Therefore, \EBRP{this}{we do not expect this} possible limitation \EBRP{will not}{to} be a problem during the research.
+Either way, all the seismic operators and machine learning models being used are tensorial algorithms, which means that their execution flow would not vary based on the input data.
+Therefore, I do not expect this possible limitation to be a problem during the research.
 
 \subsubsection{Unpredictable bottlenecks}
 
-There are two possible memory bottlenecks in the proposed solution: \ac{CPU} and \ac{GPU} memory \EB{consumption?}.
+There are two possible memory bottlenecks in the proposed solution: \ac{CPU} and \ac{GPU} memory consumption.
 Seismic operators are likely to be \ac{GPU}-memory bounded, but I need to conduct experiments to verify this.
 
 If the algorithms can be both \ac{GPU} memory and \ac{CPU} memory bounded, then the proposed solution must be able to handle both scenarios.

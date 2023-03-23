@@ -1,9 +1,31 @@
-\subsection{Research methodology}
-\label{subsec:research-methodology}
+\subsection{Research questions and methodology}
+\label{subsec:research-questions-and-methodology}
 
-In this section, I will describe the methodology I will follow to answer the proposed research.
+In this section, I present the research questions I aim to answer in this study and I will describe the methodology I will follow to answer those questions.
 Each research questions is going be answered by a set of experiments.
-To organize the execution of the experiments, I will use the categories presented on section~\ref{subsec:research-questions}.
+To organize the execution of the experiments, I will divide the questions into different categories, including:
+(i) feasibility,
+(ii) accuracy,
+(iii) and applicability.
+Table~\ref{tab:research-questions} summarizes the research questions and their respective categories.
+
+\begin{table}[ht]
+  \caption{Research questions}
+  \label{tab:research-questions}
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}|l|l|l|@{} }
+      \toprule
+      \multicolumn{1}{|c|}{\textbf{\#}} & \textbf{Question}                                                            & \textbf{Category} \\ \midrule
+      RQ1                               & How \ac{DASF}~\cite{dasf} deals with automatic chunking?                     & Feasibility       \\ \midrule
+      RQ2                               & What is the optimal way of gathering memory-usage data?                      & Feasibility       \\ \midrule
+      RQ3                               & Are seismic tensorial algorithms memory bounded by the \ac{CPU} or \ac{GPU}? & Feasibility       \\ \midrule
+      RQ4                               & Which features do we need to extract from the input data?                    & Feasibility       \\ \midrule
+      RQ5                               & What is the memory-usage behavior of our algorithms?                         & Accuracy          \\ \midrule
+      RQ6                               & Under extreme circumstances, how is the memory usage of our algorithms?      & Accuracy          \\ \midrule
+      RQ7                               & How to integrate a reinforcement learning model with Bayesian analysis?      & Applicability     \\ \bottomrule
+    \end{tabular}
+  }
+\end{table}
 
 \subsubsection{Feasibility}
 
@@ -39,5 +61,3 @@ Based on the results of all past experiments, I can focus on the second proposed
 This part aims to explore the possibility of generalizing the developed machine learning model to be algorithm-agnostic.
 To implement this, I need to figure out how and which features to extract from the original source code.
 If this is possible, I can develop a generic model that can be used to predict memory usage for any seismic operator.
-
-\EB{Daniel, adicione uma seção que descreva brevemente as tarefas a serem realizadas e o cronograma}

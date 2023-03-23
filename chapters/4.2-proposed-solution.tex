@@ -1,22 +1,14 @@
 \subsection{Proposed solution}
 \label{subsec:proposed-solution}
 
-The proposed solution is divided into two stages:
-(i) predicting the memory-footprint of an algorithm, and
-(ii) automating the data partitioning process.
-Each stage is presented as a subsection of this section.
-
-\subsubsection{Predicting the memory-footprint of an algorithm}
-
 Most seismic operators are tensorial algorithms.
-\EB{Daniel, como você tem usado bastante o termo seismic operators, acho bom definí-lo na seção de background. Talvez seja bom deixar claro lá também o que você quer dizer com memory footprint.}
 Due to this fact, we can assume that the memory footprint of an algorithm is proportional to the shape of the input data.
 Based on this, to predict the memory-footprint of an algorithm I plan to create a machine learning model that would predict the memory usage of an algorithm based on the input data. 
 
 The proposed solution can be executed in two different ways:
 
 \begin{enumerate}
-  \item \textbf{Algorithm-specific model:} train a model for each algorithm, considering \EBC{the seismic data's}{it's input parameters'} shape and size as the primary features for the prediction.
+  \item \textbf{Algorithm-specific model:} train a model for each algorithm, considering its input parameters, shape, and size as the primary features for the prediction.
   \item \textbf{Generic algorithm model:} train a model that is algorithm-agnostic, considering the source code as also a feature for the prediction.
 \end{enumerate}
 
@@ -29,8 +21,8 @@ This secondary goal is to develop a model that is algorithm-agnostic.
 I understand that the source code of the algorithm contains relevant information, such as how the code author deals with memory management.
 However, I do not have a clear picture of the features that I could extract from the source code, but I believe that this is a possible experiment for this phase of the research.
 
-\subsubsection{Automating the data partitioning process}
+\subsubsection{Practical usage}
 
-The second stage of the proposed solution is to automate the data partitioning process.
-The goal is to create a \ac{DASF}~\cite{dasf} plugin that can automatically set the optimal block\_size parameter during execution based on a machine learning model that can predict the memory-footprint of the algorithm.
-The plugin would be executed before the algorithm starts, and it would set the block\_size parameter based on the prediction of the model.
+To explore the practical usage of the proposed solution, I plan to automate the data partitioning process on \ac{DASF}~\cite{dasf}.
+The goal is to create a plugin that can automatically set the optimal block size parameter during execution based on a machine learning model that can predict the memory-footprint of the algorithm.
+The plugin would be executed before the algorithm starts, and it would set the block size parameter based on the prediction of the model.

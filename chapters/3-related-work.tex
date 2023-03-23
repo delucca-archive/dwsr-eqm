@@ -12,19 +12,19 @@
   \caption{Related work comparison table}
   \label{tab:related-work-comparison}
   \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{} | p{0.11\linewidth} | p{0.5\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} | @{}}
+    \begin{tabular}{@{} | p{0.11\linewidth} | p{0.5\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} | p{0.2\linewidth} | @{}}
       \toprule
-      \textbf{Work}        & \textbf{Used features}                                       & \textbf{Prerequisites}                   & \textbf{Purpose}              \\ \midrule
-      \cite{duplyakin2018} & Input data and hardware characteristics                      & None                                     & Predict resource consumption  \\ \midrule
-      \cite{tang2021}      & Memory usage history and executed query                      & Query logs                               & Query resource usage estimate \\ \midrule
-      \cite{rodrigues2016} & Memory usage history, user data, and job data                & Past executions                          & Scheduler resource allocation \\ \midrule
-      \cite{mehmood2018}   & Memory usage history and job data                            & Past executions                          & Scheduler resource allocation \\ \midrule
-      \cite{ferreira2013}  & Memory usage history and input structure                     & Past executions                          & Scheduler resource allocation \\ \midrule
-      \cite{phung2021}     & Resources being used and user-provided information           & Trial and error                          & Scheduler resource allocation \\ \midrule
-      \cite{fang2018}      & Resources being used and memory pressure                     & Resource competition                     & Scheduler resource allocation \\ \midrule
-      \cite{goponenko2020} & Memory usage estimate                                        & None                                     & Resource-aware scheduling     \\ \midrule
-      \cite{shealy2021}    & Memory usage history, input structure, and run command flags & Past executions and code instrumentation & Recurrent task scheduling     \\ \midrule
-      This work            & Input structure \EB{Input data shape?}                       & None                                     & Parallelism optimization      \\ \midrule
+      \textbf{Work}        & \textbf{Used features}                                       & \textbf{Prerequisites}                   & \textbf{Purpose}              & \textbf{Perspective} \\ \midrule
+      \cite{rodrigues2016} & Memory usage history, user data, and job data                & Past executions                          & Scheduler resource allocation & Scheduler            \\ \midrule
+      \cite{mehmood2018}   & Memory usage history and job data                            & Past executions                          & Scheduler resource allocation & Scheduler            \\ \midrule
+      \cite{ferreira2013}  & Memory usage history and input structure                     & Past executions                          & Scheduler resource allocation & Scheduler            \\ \midrule
+      \cite{phung2021}     & Resources being used and user-provided information           & Trial and error                          & Scheduler resource allocation & Scheduler            \\ \midrule
+      \cite{fang2018}      & Resources being used and memory pressure                     & Resource competition                     & Scheduler resource allocation & Scheduler            \\ \midrule
+      \cite{goponenko2020} & Memory usage estimate                                        & None                                     & Resource-aware scheduling     & Scheduler            \\ \midrule
+      \cite{shealy2021}    & Memory usage history, input structure, and run command flags & Past executions and code instrumentation & Recurrent task scheduling     & Scheduler            \\ \midrule
+      \cite{duplyakin2018} & Input data and hardware characteristics                      & None                                     & Predict resource consumption  & Algorithm            \\ \midrule
+      \cite{tang2021}      & Memory usage history and executed query                      & Query logs                               & Query resource usage estimate & Algorithm            \\ \midrule
+      This work            & Input data shape                                             & None                                     & Parallelism optimization      & Algorithm            \\ \midrule
     \end{tabular}
   }
 \end{table}
