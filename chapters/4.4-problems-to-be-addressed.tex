@@ -16,11 +16,23 @@ I understand that the optimal approach would be to use a specific API for this, 
 \subsubsection{Historical data requirements}
 
 Many of the current approaches require a significant amount of historical data to train the models.
-This is not feasible for our research, as it would be time-consuming to generate such data for algorithm-specific models.
-I aim to overcome this limitation by creating a proper discovery approach by merging reinforcement learning with Bayesian analysis.
+This is not feasible for my research, as it would be time-consuming to generate such data for algorithm-specific models.
+Also, even if I decide to generate such data, this would add a requirement for the user to have a significant amount of data to train the models for any new algorithm they want to use.
 
-I plan to gather the minimal amount of data, even by executing the algorithm locally with a small amount of synthetic data, and then cover the exploration space for the input data for shapes and data with features the model have never seen before.
-With this approach, I think the model will be able to learn while it is being used, and it will be able to generalize to new data.
+To overcome this limitation, I plan to implement a reinforcement learning approach to train the models.
+This approach will allow the model to learn from the data while it is being used, learning from its own mistakes and improving its predictions.
+Figure \ref{fig:reinf-learning} shows a diagram illustrating how this approach will work.
+The memory estimator is going to act as the agent, using the input shape and other features as its state to generate a estimate of the memory usage.
+A equality function will be used to compare the predicted memory usage with the actual memory usage, and this will be used to calculate the reward for the model.
+Each execution of the algorithm will act as a round to train the model.
+
+\begin{figure}[ht]
+  \caption{Reinforcement learning execution diagram}
+  \label{fig:reinf-learning}
+  \resizebox{\textwidth}{!}{%
+    \includegraphics{usage-diagram.pdf}
+  }
+\end{figure}
 
 \subsubsection{Python's garbage collection}
 
