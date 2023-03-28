@@ -1,12 +1,17 @@
 \section{Related Work}
 \label{sec:related-work}
 
-\EB{Daniel, quando uma seção tem diversas subseções, sempre que possível, é bom colocar uma pequena introdução à seção. Talvez algo com: In this section we first discuss the existing research on resource-aware scheduling (Section~\ref{subsec:resource-aware-scheduling}), then we discuss ..., finally, we present a comparison table that summarizes our main findings.} 
+In this section I will discuss the existing research related to this proposal.
+Most of the existing work aiming to predict the memory consumption are focused on resource-aware scheduling.
+The most common use-case for this type of research is to predict memory consumption in order to efficiently allocate resources in a cluster.
+There are a few works that focus on resource-aware execution, most of those focused entirely on a extremely specific use-case.
+
+During this section I will discuss both approaches, comparing and contrasting the current state-of-the-art of each.
+I will also discuss the main differences between the proposed work and the existing research.
+Finally, I present a comparison table that summarizes my main findings.
 
 \input{chapters/3.1-resource-aware-scheduling.tex}
 \input{chapters/3.2-resource-aware-execution.tex}
-
-\EB{Daniel, todos estes trabalhos preveem consumo de memória? Se for o caso, basta mencionar no texto, caso contrário, talvez seja bom adicionar uma coluna que indique o que está sendo predito}
 
 \begin{table}[ht]
   \caption{Related work comparison table}
@@ -15,16 +20,16 @@
     \begin{tabular}{@{} | p{0.11\linewidth} | p{0.5\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} | p{0.2\linewidth} | @{}}
       \toprule
       \textbf{Work}        & \textbf{Used features}                                       & \textbf{Prerequisites}                   & \textbf{Purpose}              & \textbf{Perspective} \\ \midrule
-      \cite{rodrigues2016} & Memory usage history, user data, and job data                & Past executions                          & Scheduler resource allocation & Scheduler            \\ \midrule
-      \cite{mehmood2018}   & Memory usage history and job data                            & Past executions                          & Scheduler resource allocation & Scheduler            \\ \midrule
-      \cite{ferreira2013}  & Memory usage history and input structure                     & Past executions                          & Scheduler resource allocation & Scheduler            \\ \midrule
-      \cite{phung2021}     & Resources being used and user-provided information           & Trial and error                          & Scheduler resource allocation & Scheduler            \\ \midrule
-      \cite{fang2018}      & Resources being used and memory pressure                     & Resource competition                     & Scheduler resource allocation & Scheduler            \\ \midrule
-      \cite{goponenko2020} & Memory usage estimate                                        & None                                     & Resource-aware scheduling     & Scheduler            \\ \midrule
-      \cite{shealy2021}    & Memory usage history, input structure, and run command flags & Past executions and code instrumentation & Recurrent task scheduling     & Scheduler            \\ \midrule
-      \cite{duplyakin2018} & Input data and hardware characteristics                      & None                                     & Predict resource consumption  & Algorithm            \\ \midrule
-      \cite{tang2021}      & Memory usage history and executed query                      & Query logs                               & Query resource usage estimate & Algorithm            \\ \midrule
-      This work            & Input data shape                                             & None                                     & Parallelism optimization      & Algorithm            \\ \midrule
+      \cite{rodrigues2016} & Memory usage history, user data, and job data                & Past executions                          & Scheduler resource allocation  & Scheduler            \\ \midrule
+      \cite{mehmood2018}   & Memory usage history and job data                            & Past executions                          & Scheduler resource allocation  & Scheduler            \\ \midrule
+      \cite{phung2021}     & Resources being used and user-provided information           & Trial and error                          & Scheduler resource allocation  & Scheduler            \\ \midrule
+      \cite{fang2018}      & Resources being used and memory pressure                     & Resource competition                     & Scheduler resource allocation  & Scheduler            \\ \midrule
+      \cite{ferreira2013}  & Input data parameters                                        & Extensive application profiling          & Efficient task scheduling      & Scheduler            \\ \midrule
+      \cite{shealy2021}    & Memory usage history, input structure, and eun command flags & Past executions and code instrumentation & Recurrent task scheduling      & Scheduler            \\ \midrule
+      \cite{goponenko2020} & Memory usage estimate                                        & None                                     & Efficient task scheduling      & Scheduler            \\ \midrule
+      \cite{duplyakin2018} & Input data and hardware characteristics                      & None                                     & Predict resource consumption   & Algorithm            \\ \midrule
+      \cite{tang2021}      & Memory usage history and executed query                      & Query logs                               & Query resource usage estimate  & Algorithm            \\ \midrule
+      This work            & Input data shape                                             & None                                     & Parallelism optimization       & Algorithm            \\ \midrule
     \end{tabular}
   }
 \end{table}
