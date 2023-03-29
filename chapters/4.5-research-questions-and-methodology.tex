@@ -16,7 +16,7 @@ Table~\ref{tab:research-questions} summarizes the research questions and their r
     \begin{tabular}{@{}|l|l|l|@{} }
       \toprule
       \multicolumn{1}{|c|}{\textbf{\#}} & \textbf{Question}                                                            & \textbf{Category} \\ \midrule
-      RQ1                               & How \ac{DASF}~\cite{dasf} deals with automatic chunking?                     & Feasibility       \\ \midrule
+      RQ1                               & How Dask~\cite{dask} deals with automatic chunking?                     & Feasibility       \\ \midrule
       RQ2                               & What is the optimal way of gathering memory-usage data?                      & Feasibility       \\ \midrule
       RQ3                               & Are seismic tensorial algorithms memory bounded by the \ac{CPU} or \ac{GPU}? & Feasibility       \\ \midrule
       RQ4                               & Which features do we need to extract from the input data?                    & Feasibility       \\ \midrule
@@ -32,7 +32,7 @@ Table~\ref{tab:research-questions} summarizes the research questions and their r
 
 This experiment category aims to answer \textbf{RQ1}, \textbf{RQ2}, \textbf{RQ3}, and \textbf{RQ4}.
 The goal is to understand the feasibility of our seismic operators and their main characteristics.
-I plan to start with an experiment to explore how \ac{DASF}~\cite{dasf} deals with automatic chunking (RQ1).
+I plan to start with an experiment to explore how Dask~\cite{dask} deals with automatic chunking (RQ1).
 Then, I will try to figure out the proper way to gather memory usage metrics from both the \ac{CPU} and \ac{GPU} (RQ2).
 After this, I aim to have an experiment that will explore if our seismic operators are \ac{GPU}-memory bounded or \ac{CPU} memory bounded (RQ3).
 Lastly, I will explore multiple executions of our seismic operators, trying to understand possible features we can extract from the inputs, not only the shape, but also other possible features that we can extract from the data (RQ4).
