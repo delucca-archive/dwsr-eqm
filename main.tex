@@ -18,9 +18,33 @@
 \usepackage{booktabs}
 \usepackage{caption} 
 \usepackage{subfig}
+\usepackage{listings}
 \captionsetup[table]{skip=10pt}
 
-\input{eb-macros}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.96,0.96,0.96}
+
+\lstdefinestyle{code}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=code}
 
 \addbibresource{main.bib}
 \input{acronyms.tex}
@@ -64,14 +88,8 @@
 
 %----------------MACROS-----------------------------------------
 
-\newcommand{\DF}[1]{{\bf \textcolor{blue}{(DF: #1)}}}
-\newcommand{\DFH}[1]{\hl{#1}}
-\newcommand{\DFC}[2]{\DFH{#1} \DF{#2}}
-\newcommand{\DFADD}[1]{{\textcolor{blue}{#1}}}
-\newcommand{\DFRM}[1]{{\textcolor{lightgray}{(#1)}}}
-\newcommand{\DFRP}[2]{\DFRM{#1}\DFADD{#2}}
-\newcommand{\DFRPD}[2]{#1 \DF{#1 $\rightarrow$ #2?}}
-
+\input{macros/eb.tex}
+\input{macros/df.tex}
 
 %----------------CONTENT TABLE----------------------------------
 \setlength{\baselineskip}{0.1 cm}
