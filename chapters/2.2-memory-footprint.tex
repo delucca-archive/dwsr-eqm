@@ -1,4 +1,29 @@
 \subsection{Memory footprint}
 \label{subsec:memory-footprint}
 
-Lorem ipsum dolor
+The memory footprint of an algorithm refers to the amount of memory space required for its execution, considering both static and dynamic memory allocations.
+It is a crucial performance metric, as it directly affects the overall system resources and impacts the efficiency and scalability of an algorithm.
+In essence, the memory footprint is an essential aspect of an algorithm's resource consumption, alongside other factors such as time complexity and processing power.
+
+Static memory allocation is the memory allocated during compile-time, which includes the memory needed for storing executable code, global variables, and static local variables.
+This memory remains fixed throughout the program's execution and is typically allocated in the text, data, and \ac{BSS} segments.
+
+Dynamic memory allocation, on the other hand, refers to the memory allocated during run-time, including the memory needed for storing dynamically allocated variables, function call stacks, and memory required by recursive functions.
+This type of memory allocation occurs in the heap and stack segments.
+
+A deeper understanding of the memory footprint of an algorithm can be achieved by analyzing the following components:
+
+\begin{itemize}
+    \item \textbf{Space Complexity:} Measures the total amount of memory used by an algorithm as a function of its input size.
+        It is generally expressed using big-O notation, such as $\Omicron(n)$ or $\Omicron(n^2)$, where $n$ is the input size.
+        Space complexity can be further categorized into two subtypes:
+        (i) auxiliary space (temporary memory used during execution) and
+        (ii) input space (memory needed for storing input data);
+    \item \textbf{Data Structures:} The choice of data structures employed by an algorithm significantly influences its memory footprint.
+        Different data structures have varying memory overheads and trade-offs, and selecting the most appropriate data structure can lead to substantial improvements in memory usage;
+    \item \textbf{Memory Management Techniques:} The way an algorithm manages memory can have a substantial impact on its memory footprint.
+        This includes memory allocation and deallocation strategies, garbage collection, and other techniques that optimize memory usage during the algorithm's execution.
+\end{itemize}
+
+In conclusion, the memory footprint of an algorithm is a critical aspect of its performance, as it directly influences the overall system resources and efficiency.
+By comprehending and optimizing the memory footprint of an algorithm, developers can create more efficient and scalable solutions, ultimately contributing to improved computational capabilities in various applications and industries.
