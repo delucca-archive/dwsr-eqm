@@ -5,7 +5,7 @@ This research project is divided into three phases.
 The phases are supposed to be executed in sequence, being each one responsible for a specific part of the project.
 The first phase is the \emph{experimentation phase}, which is responsible for the execution of all experiments discussed on section~\ref{subsec:research-questions-and-methodology}.
 The second phase is the \emph{prototype and evaluation phase}, which aims to develop a prototype of the proposed solution using \ac{DASF}~\cite{dasf} and evaluate the results.
-Finally, the third phase is the \empth{consolidation phase}, in which I am going to summarize the research results, writting the final report.
+Finally, the third phase is the \emph{consolidation phase}, in which I am going to summarize the research results, writting the final report.
 
 The gantt chart of the work plan and schedule of the project is presented in table~\ref{tab:work-plan-and-schedule}.
 Each activity is described as a number, and the details of each activity is presented as follows:
@@ -32,24 +32,29 @@ Each activity is described as a number, and the details of each activity is pres
     \end{enumerate}
 \end{enumerate}
 
+
+\newcommand{\chk}{$\checkmark$}
+\renewcommand{\chk}{\blacksquare}
+\renewcommand{\chk}{\blacksquare\blacksquare\blacksquare}
+
 \begin{table}[ht]
   \caption{Work plan and schedule with dates}
   \label{tab:work-plan-and-schedule}
   \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{} | l | l | l | l | l | l | l | l | l | l | l | l | l | l | @{}}
+    \begin{tabular}{@{}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|@{}}
       \toprule
       \multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Activity}}} & \multicolumn{8}{c|}{\textbf{2023}}                                                                                     & \multicolumn{5}{c|}{\textbf{2024}} \\ \cline{2-14} 
       \multicolumn{1}{|c|}{}                                   & \textbf{May} & \textbf{Jun} & \textbf{Jul} & \textbf{Aug} & \textbf{Sep} & \textbf{Oct} & \textbf{Nov} & \textbf{Dec} & \textbf{Jan} & \textbf{Feb} & \textbf{Mar} & \textbf{Apr} & \textbf{May} \\ \toprule
-      1.a                                                      & /////        & /////        &              &              &              &              &              &              &              &              &              &              &              \\ \midrule
-      1.b                                                      &              &              & /////        &              &              &              &              &              &              &              &              &              &              \\ \midrule
-      1.c                                                      &              &              &              & /////        &              &              &              &              &              &              &              &              &              \\ \toprule
-      2.a                                                      &              &              &              &              & /////        &              &              &              &              &              &              &              &              \\ \midrule
-      2.b                                                      &              &              &              &              &              & /////        & /////        &              &              &              &              &              &              \\ \midrule
-      2.c                                                      &              &              &              &              &              &              &              & /////        &              &              &              &              &              \\ \midrule
-      2.d                                                      &              &              &              &              &              &              &              & /////        &              &              &              &              &              \\ \midrule
-      2.e                                                      &              &              &              &              &              &              &              &              & /////        & /////        &              &              &              \\ \toprule
-      3.a                                                      &              &              &              &              &              &              &              &              &              &              & /////        &              &              \\ \midrule
-      3.b                                                      &              &              &              &              &              &              &              &              &              &              &              & /////        & /////        \\ \bottomrule
+      1.a                                                      & \chk        & \chk        &              &              &              &              &              &              &              &              &              &              &              \\ \midrule
+      1.b                                                      &              &              & \chk        &              &              &              &              &              &              &              &              &              &              \\ \midrule
+      1.c                                                      &              &              &              & \chk        &              &              &              &              &              &              &              &              &              \\ \toprule
+      2.a                                                      &              &              &              &              & \chk        &              &              &              &              &              &              &              &              \\ \midrule
+      2.b                                                      &              &              &              &              &              & \chk        & \chk        &              &              &              &              &              &              \\ \midrule
+      2.c                                                      &              &              &              &              &              &              &              & \chk        &              &              &              &              &              \\ \midrule
+      2.d                                                      &              &              &              &              &              &              &              & \chk        &              &              &              &              &              \\ \midrule
+      2.e                                                      &              &              &              &              &              &              &              &              & \chk        & \chk        &              &              &              \\ \midrule \midrule
+      3.a                                                      &              &              &              &              &              &              &              &              &              &              & \chk        &              &              \\ \midrule
+      3.b                                                      &              &              &              &              &              &              &              &              &              &              &              & \chk        & \chk        \\ \bottomrule
     \end{tabular}
   }
 \end{table}
