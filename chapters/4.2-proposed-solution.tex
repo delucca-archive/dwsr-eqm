@@ -21,8 +21,6 @@ This secondary goal is to develop a model that is algorithm-agnostic.
 I understand that the source code of the algorithm contains relevant information, such as how the code author deals with memory management.
 However, I do not have a clear picture of the features that I could extract from the source code, but I believe that this is a possible experiment for this phase of the research.
 
-\subsubsection{Practical usage}
-
 To explore the practical usage of the proposed solution, I plan to automate the data partitioning process on \ac{DASF}~\cite{dasf}.
 The goal is to create a plugin that can automatically set the optimal block size parameter during execution based on a machine learning model that can predict the memory-footprint of the algorithm.
 The plugin would be executed before the algorithm starts, and it would set the block size parameter based on the prediction of the model.
