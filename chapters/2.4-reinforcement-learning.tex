@@ -1,0 +1,53 @@
+\subsection{Reinforcement Learning}
+\label{subsec:reinforcement-learning}
+
+Reinforcement learning is a branch of machine learning that focuses on training intelligent agents to make decisions based on the consequences of their actions in a given environment~\cite{kaelbling1996}.
+It has emerged as a powerful method for solving complex problems in various fields.
+
+In reinforcement learning, the model, known as an agent, interacts with an environment to learn an optimal policy for achieving its goals.
+The agent selects actions based on their current state and receives feedback from the environment through rewards or penalties.
+This feedback guides the agent's learning process, allowing it to improve its decision-making abilities over time.
+
+The central components of a reinforcement learning system include:
+
+\begin{itemize}
+    \item \emph{Agent:} The intelligent entity that learns and makes decisions based on its interactions with the environment;
+    \item \emph{Environment:} The context or world within which the agent operates, offering various states, actions, and feedback;
+    \item \emph{State:} The representation of the agent's current situation within the environment;
+    \item \emph{Action:} The possible moves or decisions the agent can make within the environment;
+    \item \emph{Reward:} The feedback the environment provides indicates the success or failure of an agent's actions.
+\end{itemize}
+
+Reinforcement learning algorithms can be broadly categorized into model-free and model-based methods, as well as on and off-policy methods:
+
+On \emph{model-free methods}, the agent learns directly from its interactions with the environment without knowing the underlying dynamics.
+The agent learns to map states to actions based on trial and error.
+Examples of model-free methods include Q-learning~\cite{watkins1992}, SARSA~\cite{rummery1994}, and \ac{DQNs}~\cite{mnih2015}.
+On the other hand, on \emph{model-based methods}, the agent learns a model of the environment, which captures the dynamics of state transitions and rewards.
+This model is then used to plan and select optimal actions.
+Techniques employed in model-based methods include Monte Carlo Tree Search~\cite{browne2012}, Dynamic Programming, and various planning algorithms.
+
+Regarding policy methods, \emph{on-policy methods} involve the agent learning the value of its current policy while following it.
+The agent continually updates its policy based on the experience gained through its actions.
+On-policy algorithms include SARSA~\cite{rummery1994}, which learns the action-value function for the current policy, and actor-critic methods that learn both a value function and a policy.
+In contrast to on-policy methods, \emph{off-policy methods} enable the agent to learn the optimal policy while following another policy.
+This approach provides more flexibility, as the agent can learn from the experiences of other agents or explore different policies simultaneously.
+Q-learning~\cite{watkins1992} and \ac{DDPG}~\cite{wang2022} are examples of off-policy algorithms.
+
+According to Sutton and Barto~\cite{sutton1998}, the critical steps for the process of reinforcement learning are:
+(i) initialization, when the agent starts in an initial state and initializes its learning parameters, such as the action-value function or policy;
+(ii) action selection, when the agent chooses an action based on its current policy or action-value function, often incorporating exploration strategies like epsilon-greedy or softmax action selection;
+(iii) environment interaction, when the agent performs the chosen action, and the environment responds by providing a reward and transitioning to a new state;
+(iv) learning, when the agent updates its knowledge based on the experience gained from the interaction, adjusting its policy or action-value function;
+(v) repetition, steps ii through iv are repeated until a termination condition is met, such as reaching a maximum number of steps, achieving a certain level of performance, or converging on an optimal policy.
+
+Despite the promising capabilities of reinforcement learning, challenges and limitations exist, such as exploration vs. exploitation trade-offs, sparse rewards, and sample efficiency.
+Balancing exploration (trying new actions) with exploitation (selecting known optimal actions) is crucial for an agent to learn effectively.
+Additionally, agents must learn to cope with environments where rewards are infrequent or delayed, which can slow down the learning process.
+
+Another challenge in reinforcement learning is dealing with the curse of dimensionality~\cite{weber1998}.
+As the state and action spaces become more complex, the time and computational resources required for learning can grow exponentially.
+Researchers have developed various techniques to tackle this issue, such as function approximation, state aggregation, and hierarchical reinforcement learning.
+
+Reinforcement learning offers a robust framework for training intelligent agents to make decisions in complex environments.
+Despite the challenges and limitations, ongoing research pushes the boundaries of what reinforcement learning can achieve, paving the way for its application in various fields and real-world problems.
