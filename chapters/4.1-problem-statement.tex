@@ -25,10 +25,10 @@ The third graph divides the data into a smaller number of parts, minimizing both
 \end{figure}
 
 While executing the graph, the developer must manually set the block size parameter.
-Setting a large number may lead to memory issues and cause significant delays due the trial-and-error nature of the execution flow.
-Since Petrobras uses supercomputers to execute those graphs, this delay is even larger considering the time it takes to submit a job due to the queue waiting time.
+Setting a large value may lead to memory issues and cause significant delays due the trial-and-error nature of the execution flow.
+Since Petrobras uses supercomputers to execute those graphs, this delay may be even larger considering the time it takes to submit a job due to the queue waiting time.
 
-On the other hand, setting a small number may increase the execution time due to network and scheduler overhead.
+On the other hand, setting a small block size value may increase the execution time due to network and scheduler overhead.
 Since Petrobras have a large number of graphs to execute, and each graph usually takes a long time to execute, I need to find a way to optimize the block size parameter.
 
 Dask~\cite{dask} provides an automatic chunking feature, but it relies on the chunk size parameter, which is a static parameter defined prior to execution.
@@ -40,5 +40,5 @@ Since \ac{DASF}~\cite{dasf} uses Dask~\cite{dask} under the hood, the block size
 Therefore, this research aims to develop a way to understand the memory-footprint of a graph to simplify the decision of the ideal chunk size.
 
 As a practical usage, I aim to create a \ac{DASF}~\cite{dasf} plugin that can automatically set the optimal block size parameter during execution based on a machine learning model that can predict the memory-footprint of the algorithm.
-This will help Petrobras to optimize resource utilization and minimize waiting and execution time.
+This will help \ac{DASF}~\cite{dasf} users to optimize resource utilization and minimize waiting and execution time.
 The model will provide a comprehensive understanding of memory usage patterns for different block sizes and contribute to the development of a more efficient data partitioning strategy to execute a graph in large-scale clusters.

@@ -1,5 +1,4 @@
 import dask.dataframe as dd
-import pandas as pd
 
 # Read a large CSV file in chunks
 df = dd.read_csv("large_data.csv", blocksize="64MB")

@@ -32,29 +32,30 @@ Each activity is described as a number, and the details of each activity is pres
     \end{enumerate}
 \end{enumerate}
 
-
-\newcommand{\chk}{$\checkmark$}
-\renewcommand{\chk}{\blacksquare}
-\renewcommand{\chk}{\blacksquare\blacksquare\blacksquare}
+\newcommand{\inp}{\cellcolor{teal!25}}
+\newcommand{\stagerule}{\midrule\midrule}
+\aboverulesep = 0mm
+\belowrulesep = 0mm
 
 \begin{table}[ht]
   \caption{Work plan and schedule with dates}
   \label{tab:work-plan-and-schedule}
-  \resizebox{\textwidth}{!}{%
+  \resizebox{\textwidth}{!}{
     \begin{tabular}{@{}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|@{}}
       \toprule
-      \multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Activity}}} & \multicolumn{8}{c|}{\textbf{2023}}                                                                                     & \multicolumn{5}{c|}{\textbf{2024}} \\ \cline{2-14} 
-      \multicolumn{1}{|c|}{}                                   & \textbf{May} & \textbf{Jun} & \textbf{Jul} & \textbf{Aug} & \textbf{Sep} & \textbf{Oct} & \textbf{Nov} & \textbf{Dec} & \textbf{Jan} & \textbf{Feb} & \textbf{Mar} & \textbf{Apr} & \textbf{May} \\ \toprule
-      1.a                                                      & \chk        & \chk        &              &              &              &              &              &              &              &              &              &              &              \\ \midrule
-      1.b                                                      &              &              & \chk        &              &              &              &              &              &              &              &              &              &              \\ \midrule
-      1.c                                                      &              &              &              & \chk        &              &              &              &              &              &              &              &              &              \\ \toprule
-      2.a                                                      &              &              &              &              & \chk        &              &              &              &              &              &              &              &              \\ \midrule
-      2.b                                                      &              &              &              &              &              & \chk        & \chk        &              &              &              &              &              &              \\ \midrule
-      2.c                                                      &              &              &              &              &              &              &              & \chk        &              &              &              &              &              \\ \midrule
-      2.d                                                      &              &              &              &              &              &              &              & \chk        &              &              &              &              &              \\ \midrule
-      2.e                                                      &              &              &              &              &              &              &              &              & \chk        & \chk        &              &              &              \\ \midrule \midrule
-      3.a                                                      &              &              &              &              &              &              &              &              &              &              & \chk        &              &              \\ \midrule
-      3.b                                                      &              &              &              &              &              &              &              &              &              &              &              & \chk        & \chk        \\ \bottomrule
+      \multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Activity}}} & \multicolumn{8}{c|}{\textbf{2023}}                                                                                    & \multicolumn{5}{c|}{\textbf{2024}}                                       \\ \cline{2-14} 
+      \multicolumn{1}{|c|}{}                                   & \textbf{Mar} & \textbf{Jun} & \textbf{Jul} & \textbf{Ago} & \textbf{Sep} & \textbf{Oct} & \textbf{Nov} & \textbf{Dec} & \textbf{Jan} & \textbf{Feb} & \textbf{Mar} & \textbf{Apr} & \textbf{May} \\ \toprule
+      1.a                                                      & \inp         & \inp         &              &              &              &              &              &              &              &              &              &              &              \\ \midrule
+      1.b                                                      &              &              & \inp         &              &              &              &              &              &              &              &              &              &              \\ \midrule
+      1.c                                                      &              &              &              & \inp         &              &              &              &              &              &              &              &              &              \\ \stagerule
+      2.a                                                      &              &              &              &              & \inp         &              &              &              &              &              &              &              &              \\ \midrule
+      2.b                                                      &              &              &              &              &              & \inp         & \inp         &              &              &              &              &              &              \\ \midrule
+      2.c                                                      &              &              &              &              &              &              &              & \inp         &              &              &              &              &              \\ \midrule
+      2.d                                                      &              &              &              &              &              &              &              & \inp         &              &              &              &              &              \\ \midrule
+      2.e                                                      &              &              &              &              &              &              &              &              & \inp         & \inp         &              &              &              \\ \stagerule
+      3.a                                                      &              &              &              &              &              &              &              &              &              &              & \inp         &              &              \\ \midrule
+      3.b                                                      &              &              &              &              &              &              &              &              &              &              &              & \inp         & \inp         \\ \bottomrule
     \end{tabular}
   }
+}
 \end{table}

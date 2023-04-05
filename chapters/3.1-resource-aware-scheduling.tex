@@ -1,51 +1,52 @@
 \subsection{Resource-aware scheduling}
 \label{subsec:resource-aware-scheduling}
 
-Pupykina \emph{et al.}~\cite{pupykina2019} presets a broad overview of the memory management field until 2019.
+Pupykina and Agosta~\cite{pupykina2019} present a broad overview of the memory management field until 2019.
 According to the authors, the main challenge on predicting memory usage is the lack of knowledge of the memory access patterns within an application.
 Most of current research focus on using machine learning techniques to bypass this problem.
 Although this approach has been successful, it is only capable of predicting the overall resource usage of a whole workload, and not the resource usage of a single task.
 
-The observation made by Pupykina \emph{et al.}~\cite{pupykina2019} is visible while evaluating recent work.
+The observation made by Pupykina \etal~\cite{pupykina2019} is visible while evaluating recent work.
 Most of the research done so far focus only on the scheduler perspective, using memory usage history to predict the expected resource requirements of a given cluster.
 
-E. R. Rodrigues \emph{et al.}~\cite{rodrigues2016} presents a machine learning model that can easily be integrated into a scheduler to predict the resource requirements of a given task when executing on a cluster.
+E. R. Rodrigues \etal~\cite{rodrigues2016} present a machine learning model that can easily be integrated into a scheduler to predict the resource requirements of a given task when executing on a cluster.
 Their work is mainly focused on the scheduler perspective, since it uses past executions by the user to predict the resource requirements for future jobs.
 While submiting a new job to the scheduler, the user must provide a manual estimate.
-This estimate is used by E. R. Rodrigues \emph{et al.}~\cite{rodrigues2016} alongside with past executions to predict the actual resource requirements of the job.
+This estimate is used by E. R. Rodrigues \etal~\cite{rodrigues2016} alongside with past executions to predict the actual resource requirements of the job.
 Although effective, this approach is vulnerable to spurious correlations, since past executions from other jobs by the same user can influence the prediction.
 
-T. Mehmood \emph{et al.}~\cite{mehmood2018} presents an ensemble machine learning model that can predict the expected resource usage of a cloud provider at a given period of time.
+T. Mehmood \etal~\cite{mehmood2018} present an ensemble machine learning model that can predict the expected resource usage of a cloud provider at a given period of time.
 That estimate is calculated based on the resource usage of recent tasks submitted to that specific provider.
-Like E. R. Rodrigues \emph{et al.}~\cite{rodrigues2016}, T. Mehmood \emph{et al.}~\cite{mehmood2018} uses past executions to predict the resource requirements at a given time.
-As the input data to train the machine learning model, T. Mehmood \emph{et al.}~\cite{mehmood2018} uses a dataset provided by Google containing the trace data of a large number of jobs executed on Google Cloud Platform.
+Like E. R. Rodrigues \etal~\cite{rodrigues2016}, T. Mehmood \etal~\cite{mehmood2018} uses past executions to predict the resource requirements at a given time.
+As the input data to train the machine learning model, T. Mehmood \etal~\cite{mehmood2018} uses a dataset provided by Google containing the trace data of a large number of jobs executed on Google Cloud Platform.
 
-Similarly to both T. Mehmood \emph{et al.}~\cite{mehmood2018} and E. R. Rodrigues \emph{et al.}~\cite{rodrigues2016}, Phung \emph{et al.}~\cite{phung2021} proposes an approach to use past executions to achieve a smaller upper-bound on resource allocation.
-To do so, Phung \emph{et al.}~\cite{phung2021} uses a trial and error method where the scheduler tries to increase the available resources for a given job until it reaches the point where the job stops failling.
+Similarly to both T. Mehmood \etal~\cite{mehmood2018} and E. R. Rodrigues \etal~\cite{rodrigues2016}, Phung \etal~\cite{phung2021} propose an approach to use past executions to achieve a smaller upper-bound on resource allocation.
+To do so, Phung \etal~\cite{phung2021} uses a trial and error method where the scheduler tries to increase the available resources for a given job until it reaches the point where the job stops failling.
 
-On the other hand, Fang \emph{et al.}~\cite{fang2018} takes a different approach.
-Instead of using historical data to predict the exact amount of resources required, Fang \emph{et al.}~\cite{fang2018} uses a machine learning model to predict the current memory pressure of a given cluster.
+On the other hand, Fang, Wang, and Sun~\cite{fang2018} take a different approach.
+Instead of using historical data to predict the exact amount of resources required, Fang, Want, and Sun~\cite{fang2018} use a machine learning model to predict the current memory pressure of a given cluster.
 Their research is coupled with the Hadoop~\cite{hadoop} framework, and analyzes the status of all active jobs before submitting a new one on the same cluster.
 This approach can not be so effective to predict the resource requirements of a single job, but it can be used to predict the overall performance of the cluster itself.
 
 All the research discussed so far focus on handling proper resource allocation within the scheduler.
-Although effective, all of them require either a large amount of historical data or a large number of incoming jobs to train the machine learning model.
-Both the required amount of historical data, and the focus on resource allocation based on a Heterogeneous pool of incoming jobs, limits the usage of those approaches to large-scale clusters.
+Although effective, all of them require to be trained with historical data of incoming jobs.
+Both the required amount of historical data, and the focus on resource allocation based on a heterogeneous pool of incoming jobs, limits the usage of those approaches to large-scale clusters.
+Using those approaches to predict the memory requirements of a single job is counterproductive, since each different job would required a different training dataset.
 
-Considering this limitation, Ferreira da Silva~\etal~\cite{ferreira2013} proposes a machine learning model that uses a clustering approach to evaluate the input data and predict the resource requirements of a given job.
+Considering this limitation, Ferreira da Silva~\etal~\cite{ferreira2013} propose a machine learning model that uses a clustering approach to evaluate the input data and predict the resource requirements of a given job.
 Their approach has a high accuracy, but the results varies a lot based on the size and density of the input itself.
 
-During their research, Ferreira da Silva \emph{et al.}~\cite{ferreira2013} discovered that smaller datasets has a higher correlation rate between the parameters that the clustering algorithm extracts with the resource consumption itself.
+During their research, Ferreira da Silva \etal~\cite{ferreira2013} discovered that smaller datasets has a higher correlation rate between the parameters that the clustering algorithm extracts with the resource consumption itself.
 This observation is important, since it shows that it is possible to extract features from the input data that can be used to predict the resource requirements of a given job.
-As the final goal of their research, Ferreira da Silva \emph{et al.}~\cite{ferreira2013} created an online estimator tool, designed explicitly to be used by schedulers in order to improve their scheduling process.
+As the final goal of their research, Ferreira da Silva \etal~\cite{ferreira2013} created an online estimator tool, designed explicitly to be used by schedulers in order to improve their scheduling process.
 
-Similar to Ferreira da Silva \emph{et al.}~\cite{ferreira2013}, B. T. Shealy \emph{et al.}~\cite{shealy2021} tries to extract features from the components of the execution in order to predict the resource consumption.
-Instead of gathering features only from the input data, B. T. Shealy \emph{et al.}~\cite{shealy2021} also uses a set of user-defined run parameters as possible features to train the model.
+Similar to Ferreira da Silva \etal~\cite{ferreira2013}, B. T. Shealy \etal~\cite{shealy2021} try to extract features from the components of the execution in order to predict the resource consumption.
+Instead of gathering features only from the input data, B. T. Shealy \etal~\cite{shealy2021} also use a set of user-defined run parameters as possible features to train the model.
 This approach aims to create an algorithm-specific model that would be able to predict the resource consumption of job.
 The main limitation of this approach is the requirement of building a training dataset for each algorithm that the user wants to predict the resource consumption.
 Due to this fact, this approach is only suitable for recurrent algorithms that are executed multiple times, changing only the input data and a few run parameters.
 
-Finally, A. V. Goponenko \emph{et al.}~\cite{goponenko2020} focus on a different perspective.
+Finally, A. V. Goponenko \etal~\cite{goponenko2020} focus on a different perspective.
 Their work proves that resource-aware scheduling can be way more effective than traditional scheduling algorithms.
 They have integrated their tool to Slurm taking into account resource requirements while scheduling new jobs.
-During the research, A. V. Goponenko \emph{et al.}~\cite{goponenko2020} discovered that their test workload executed 9.4\% faster than the original scheduling, with a more efficient usage of the cluster resources.
+During the research, the authors discovered that their test workload executed 9.4\% faster than the original scheduling, with a more efficient usage of the cluster resources.
