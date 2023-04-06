@@ -1,26 +1,24 @@
 \subsection{Proposed solution}
 \label{subsec:proposed-solution}
 
-Most seismic operators are tensorial algorithms.
-Due to this fact, we can assume that the memory footprint of an algorithm is proportional to the shape of the input data.
-Based on this, to predict the memory-footprint of an algorithm I plan to create a machine learning model that would predict the memory usage of an algorithm based on the input data. 
+Most seismic operators are tensorial algorithms that execute calculations for each part of the input data.
+Due to this fact, it is safe to assume that there might be a relationship between the memory usage of an algorithm and the shape of the input itself.
+This research plans to create a reinforcement learning model that can optimize the chunking process by using the algorithm's memory footprint and adjusting the chunk size during the execution of the graph.
 
-The proposed solution can be executed in two different ways:
+There are two different ways to implement the proposed solution:
 
 \begin{enumerate}
-  \item \textbf{Algorithm-specific model:} train a model for each algorithm, considering its input parameters, shape, and size as the primary features for the prediction.
-  \item \textbf{Generic algorithm model:} train a model that is algorithm-agnostic, considering the source code as also a feature for the prediction.
+  \item \textbf{Algorithm-specific model:} create a separate model for each algorithm, considering its input parameters, input shape, and size as the primary features to describe the current state for the optimization;
+  \item \textbf{Generic algorithm model:} create a single model capable of being algorithm-agnostic, considering the source code as a feature to describe the state during optimization.
 \end{enumerate}
 
-Although creating a generic algorithm model is more flexible, I plan to start by coding an algorithm-specific model to understand the problem better.
-While coding the model, I expect to find input features that are relevant to he prediction.
-My initial hypothesis is that the input data's shape and size are the most relevant features, but I will experiment with other features to improve the prediction too.
+Although creating a generic algorithm model is more flexible, coding an algorithm-specific model will allow us to explore all possible limitations in a more controlled environment.
+While coding the model, one of the first challenges is exploring which features may describe the current environment state for the optimization.
+As a first hypothesis, the input data's shape and size may be the most relevant features since a large memory footprint is usually related to storing intermediate results.
 
-Depending on the results of the initial experiments to create an algorithm-specific model, I may pursue the generic algorithm model.
-This secondary goal is to develop a model that is algorithm-agnostic.
-I understand that the source code of the algorithm contains relevant information, such as how the code author deals with memory management.
-However, I do not have a clear picture of the features that I could extract from the source code, but I believe that this is a possible experiment for this phase of the research.
+Depending on the results of the initial experiments to create an algorithm-specific model, it is possible to expand the scope to a generic algorithm model.
+In this scenario, the algorithm's source code may contain relevant information, such as how the code author deals with memory management.
+However, it needs to be clarified how to extract features from the source code and use them to describe the current state during execution.
 
-To explore the practical usage of the proposed solution, I plan to automate the data partitioning process on \ac{DASF}~\cite{dasf}.
-The goal is to create a plugin that can automatically set the optimal block size parameter during execution based on a machine learning model that can predict the memory-footprint of the algorithm.
-The plugin would be executed before the algorithm starts, and it would set the block size parameter based on the prediction of the model.
+From a practical perspective, the reinforcement learning model will be responsible for the data partitioning process on \ac{DASF}~\cite{dasf}.
+The goal is to create a plugin that can automatically set the optimal block size parameter during execution, updating the value based on the current state of the algorithm.
