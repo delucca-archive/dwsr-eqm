@@ -1,13 +1,13 @@
 \subsection{Research questions and methodology}
 \label{subsec:research-questions-and-methodology}
 
-In this section, I present the research questions I aim to answer in this study and I will describe the methodology I will follow to answer those questions.
-Each research questions is going be answered by a set of experiments.
-To organize the execution of the experiments, I will divide the questions into different categories, including:
+This section presents the research questions to explore in this study.
+It also describes the methodology used to answer those questions.
+Each research question is going be answered by a set of experiments, grouped into three different categories, including:
 (i) feasibility,
 (ii) accuracy,
 (iii) and applicability.
-Table~\ref{tab:research-questions} summarizes the research questions and their respective categories.
+Table~\ref{tab:research-questions} summarizes the research questions and their categories.
 
 \begin{table}[ht]
   \caption{Research questions}
@@ -16,13 +16,13 @@ Table~\ref{tab:research-questions} summarizes the research questions and their r
     \begin{tabular}{@{}|l|l|l|@{} }
       \toprule
       \multicolumn{1}{|c|}{\textbf{\#}} & \textbf{Question}                                                            & \textbf{Category} \\ \midrule
-      RQ1                               & How Dask~\cite{dask} deals with automatic chunking?                     & Feasibility       \\ \midrule
+      RQ1                               & How Dask~\cite{dask} deals with automatic chunking?                          & Feasibility       \\ \midrule
       RQ2                               & What is the optimal way of gathering memory-usage data?                      & Feasibility       \\ \midrule
       RQ3                               & Are seismic tensorial algorithms memory bounded by the \ac{CPU} or \ac{GPU}? & Feasibility       \\ \midrule
       RQ4                               & Which features do we need to extract from the input data?                    & Feasibility       \\ \midrule
       RQ5                               & What is the memory-usage behavior of our algorithms?                         & Accuracy          \\ \midrule
       RQ6                               & Under extreme circumstances, how is the memory usage of our algorithms?      & Accuracy          \\ \midrule
-      RQ7                               & How to integrate a reinforcement learning model with Bayesian analysis?      & Applicability     \\ \bottomrule
+      RQ7                               & How to integrate the reinforcement learning model to execute chunking?        & Applicability     \\ \bottomrule
     \end{tabular}
   }
 \end{table}
@@ -32,35 +32,36 @@ Table~\ref{tab:research-questions} summarizes the research questions and their r
 
 This experiment category aims to answer \textbf{RQ1}, \textbf{RQ2}, \textbf{RQ3}, and \textbf{RQ4}.
 The goal is to understand the feasibility of our seismic operators and their main characteristics.
-I plan to start with an experiment to explore how Dask~\cite{dask} deals with automatic chunking (RQ1).
-Then, I will try to figure out the proper way to gather memory usage metrics from both the \ac{CPU} and \ac{GPU} (RQ2).
-After this, I aim to have an experiment that will explore if our seismic operators are \ac{GPU}-memory bounded or \ac{CPU} memory bounded (RQ3).
-Lastly, I will explore multiple executions of our seismic operators, trying to understand possible features we can extract from the inputs, not only the shape, but also other possible features that we can extract from the data (RQ4).
+
+This category will start with an experiment to explore how Dask~\cite{dask} deals with automatic chunking (RQ1).
+Then, it will proceed to figure out the proper way to gather memory usage metrics from both the \ac{CPU} and \ac{GPU} (RQ2).
+After this, the following experiment will explore if our seismic operators are \ac{GPU}-memory bounded or \ac{CPU} memory bounded (RQ3).
+Lastly, the final experiment will explore multiple executions of seismic operators, trying to understand possible features from the input data (RQ4).
 
 \subsubsection{Accuracy}
 \label{subsubsec:accuracy-experiments}
 
-This experiment cateogry aims to answer \textbf{RQ5} and \textbf{RQ6}.
+This experiment category aims to answer \textbf{RQ5} and \textbf{RQ6}.
 The goal is to understand how reliable the results can be.
-I will first explore the behavior of the seismic operators, exploring how they use memory in a set of different synthetic executions (RQ5).
-Finally, I will try pushing our algorithms to the limit to check if, under extreme circumstances (like uncommon inputs), the algorithm can break or display an unpredictable memory-usage pattern (RQ6).
+It will start by exploring the behavior of the seismic operators and how they use memory in different synthetic executions (RQ5).
+Finally, it will try to push the existing algorithms to the limit to check if, under extreme circumstances (like uncommon inputs), the algorithm can break or display an unpredictable memory-usage pattern (RQ6).
 
 \subsubsection{Applicability}
 \label{subsubsec:applicability-experiments}
 
-The third, and last, experiment category is applicability, which aims to answer RQ7.
+The third and last experiment category is applicability, which aims to answer RQ7.
 The goal is to act as a pre-prototype experiment.
-I aim to explore reinforcement learning models and Bayesian analysis to understand how I can apply the results from the previous experiments to predict memory usage.
+This phase will explore reinforcement learning models to understand how to apply the results from the previous experiments to adjust the block size based on the algorithm's memory footprint.
 
 \subsubsection{Prototype development}
 
-After we execute all the experiments, I will implement a prototype.
-The idea for that prototype is to act as a plugin for \ac{DASF}~\cite{dasf} and use it as a contribution to the active Petrobras seismic project in our laboratory.
-The plugin can act not only to tune the input block\_size for every operator, but also as a decision heuristic for scheduling.
+After the execution of all the experiments, the next step is implementing a prototype.
+The idea for that prototype is to act as a plugin for \ac{DASF}~\cite{dasf} and use it to contribute to the active Petrobras seismic project in the laboratory.
+The plugin can act to tune the input block\_size for every operator and as a decision heuristic for scheduling.
 
 \subsubsection{Research extension}
 
-Based on the results of all past experiments, I can focus on the second proposed solution.
-This part aims to explore the possibility of generalizing the developed machine learning model to be algorithm-agnostic.
-To implement this, I need to figure out how and which features to extract from the original source code.
-If this is possible, I can develop a generic model that can be used to predict memory usage for any seismic operator.
+This part explores the possibility of generalizing the developed machine-learning model to be algorithm-agnostic.
+The decision-making process to explore this alternative will consider the result of all past experiments.
+The first step to implementing this is understanding how and which features to extract from the source code.
+The existing model will be improved to act as a generic model for any algorithm.
