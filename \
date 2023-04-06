@@ -32,7 +32,7 @@ Each activity is described as a number, and the details of each activity are pre
     \end{enumerate}
 \end{enumerate}
 
-\newcommand{\inp}{\cellcolor{orange!50}}
+\newcommand{\inp}{\cellcolor{cyan!50}}
 \newcommand{\stagerule}{\midrule\midrule}
 \aboverulesep = 0mm
 \belowrulesep = 0mm
