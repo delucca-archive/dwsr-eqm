@@ -2,16 +2,16 @@
 \label{subsec:resource-aware-execution}
 
 D. Duplyakin \etal~\cite{duplyakin2018} take a different approach to evaluate the resource usage of a given algorithm.
-Instead of using the execution history in order to predict the expected requirements to efficiently handle resource allocation, they try to incrementally model the memory usage of the algorithm using an active learning approach.
-Their discovery is important, since they successfully demonstrated that it is possible to integrate active learning with gaussian process regression in order to explore the resource usage of a given algorithm.
-However, their approach is tighly coupled to their use-case, but the same concept can be explored on a more general approach.
+Instead of using the execution history to predict the expected requirements to handle resource allocation efficiently, they try to incrementally model the memory usage of the algorithm using an active learning approach.
+Their discovery is essential since they successfully demonstrated that it is possible to integrate active learning with Gaussian process regression to explore the resource usage of a given algorithm.
+However, their approach is specific to their use case, but a more general approach can explore the same concept.
 
 Following a similar perspective, C. Tang \etal~\cite{tang2021} proposes a method to predict the resource usage of a given query.
-Their approach was developed inside Twitter~\footnote{https://twitter.com/}, and aims to simplify the calculation of the resource usage of SQL queries.
-During their research, the authors were able to extract keywords and features directly from the query itself and use those features to increase the prediction accuracy.
-With that method, they were able to achieve an average accuracy of 97\%.
+Their approach was developed inside Twitter~\footnote{https://twitter.com/} and aimed to simplify calculating the resource usage of SQL queries.
+During their research, the authors extracted keywords and features directly from the query itself and used those features to increase the prediction accuracy.
+With that method, they achieved an average accuracy of 97\%.
 Considering this, their research demonstrated that it is possible to use the source code of a given algorithm to predict its resource usage.
-Although their context is limited to SQL queries, the same concept can be generalized to other programming languages.
+Although their context is limited to SQL queries, the same concept may work in other programming languages.
 
-As demonstrated by D. Duplyakin \etal~\cite{duplyakin2018} and C. Tang \etal~\cite{tang2021}, it is possible to predict the resource usage of a single algorithm both by exploring key aspects of the application, as well as by dynamically exploring unknown executions.
-However, both approaches are limited to a specific use-case, and they do not provide a general solution to predict the resource usage of any given algorithm.
+As demonstrated by D. Duplyakin \etal~\cite{duplyakin2018} and C. Tang \etal~\cite{tang2021}, it is possible to predict the resource usage of a single algorithm both by exploring critical aspects of the application, as well as by dynamically exploring unknown executions.
+However, both approaches are limited to a specific use case and do not provide a general solution to predict the resource usage of any given algorithm.
