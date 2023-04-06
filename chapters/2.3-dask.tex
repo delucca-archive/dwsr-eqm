@@ -3,18 +3,18 @@
 
 Dask~\cite{dask} is a powerful and flexible parallel computing framework designed for the Python ecosystem.
 It enables users to harness the power of parallel and distributed computing to scale their applications and data processing tasks.
-Dask~\cite{dask} was created to address the limitations of traditional Python libraries like NumPy~\cite{numpy} and Pandas~\cite{pandas}, which struggle to handle large-scale datasets due to their in-memory computation model.
+Dask~\cite{dask} focus on addressing the limitations of standard Python libraries like NumPy~\cite{numpy} and Pandas~\cite{pandas}, which struggle to handle large-scale datasets due to their in-memory computation model.
 It addresses these limitations by providing parallelized and out-of-core computation capabilities.
 
 Dask~\cite{dask} works by breaking down large-scale tasks into smaller, manageable tasks that can be executed in parallel across multiple cores or even distributed across multiple machines.
-It builds a task graph, which is a visual representation of the tasks and their dependencies, allowing for efficient scheduling and execution of tasks.
+It builds a task graph, which visually represents the tasks and their dependencies, allowing for efficient scheduling and execution of tasks.
 Dask~\cite{dask} can automatically manage and distribute these tasks, making it easier for users to scale their applications.
 
-Some of the key features of Dask~\cite{dask} are:
+Some of the critical features of Dask~\cite{dask} are:
 (i) parallelism that can leverage the available hardware resources,
 (ii) out-of-core computation, which allows handling datasets that are too large to fit into memory,
 (iii) dynamic task scheduling, and
-(iv) Integration with existing Python libraries.
+(iv) integration with existing Python libraries.
 
 Code sample~\ref{lst:dask-sample-001} shows an example of how Dask~\cite{dask} can be used to parallelize NumPy~\cite{numpy} operations, while code sample~\ref{lst:dask-sample-002} shows how Dask~\cite{dask} can be used to parallelize Pandas~\cite{pandas} operations.
 

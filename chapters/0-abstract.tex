@@ -1,14 +1,13 @@
-\textbf{Abstract:} Efficient job resource allocation in large-scale computing clusters is often hindered by the challenge of accurately predicting memory usage for certain complex algorithms.
-Seismic operators stand out as one such class of algorithms that can exhibit highly variable and hard-to-predict memory requirements.
-When processing these operators in computing clusters, substantial time is lost due to factors such as suboptimal resource allocation, inefficient data partitioning, and the need for additional data transfers between processing units.
+\textbf{Abstract:} Efficient job resource allocation in large-scale computing clusters is often hindered by the challenge of accurately predicting memory usage for specific complex algorithms.
+Seismic operators stand out as a class of algorithms that can exhibit highly variable and hard-to-predict memory requirements.
+Although schedulers usually apply a chunking strategy to split the data among workers, the memory usage of such operators may be even more significant than the input data since they can hold intermediate results during execution.
 
-To mitigate these issues, data is commonly divided into smaller chunks for parallel processing across multiple nodes.
-However, determining the optimal chunk size remains a challenging task, as it requires striking a delicate balance between memory usage, computational efficiency, and inter-node communication overhead.
-Gaining insight into an algorithm's memory footprint can greatly simplify this task, enabling better resource allocation, reduced execution time, and improved overall performance.
+However, determining the optimal chunk size remains challenging, as it requires striking a delicate balance between memory usage, computational efficiency, and inter-node communication overhead.
+Gaining insight into an algorithm's memory footprint can significantly simplify this task, enabling better resource allocation, reduced execution time, and improved overall performance.
 
-Existing research in this domain primarily focuses on scheduler-based approaches for resource usage prediction or highly specific use-cases that are not easily generalizable.
-Recognizing this gap in the literature, this study aims to develop a reinforcement learning model capable of predicting memory usage across a broader range of scenarios.
+Existing research in this domain primarily focuses on scheduler-based approaches for resource usage prediction or particular use cases that could be more easily generalizable.
+Since memory usage is relevant for this class of algorithms, this study aims to develop a chunk optimization technique using a reinforcement learning model capable of predicting memory usage across a broader range of scenarios.
 
-Moreover, this research seeks to provide a deeper understanding of the relationship between memory usage and parallel processing efficiency.
-This knowledge will not only benefit the processing of seismic operators but also extend to other algorithms with similar characteristics.
-Ultimately, our reinforcement learning-based approach aims to enhance the performance of large-scale computing clusters and contribute to more effective resource management in diverse computational settings.
+Moreover, this research will explore the relationship between memory usage and parallel processing efficiency.
+This knowledge will benefit the processing of seismic operators and extend to other algorithms with similar characteristics.
+Ultimately, the reinforcement learning-based approach aims to enhance the performance of large-scale computing clusters and contribute to more effective resource management in diverse computational settings.
