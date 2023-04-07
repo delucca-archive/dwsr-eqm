@@ -20,12 +20,16 @@ Those are not feasible for this research since each execution graph would requir
 Using a reinforcement learning approach will allow us to overcome this limitation.
 This approach will allow the model to learn from the data during execution, learning from its mistakes and improving its predictions.
 Figure \ref{fig:reinf-learning} shows a diagram illustrating how this approach will work.
-The agent will evaluate the current state, considering both input-related features as well as memory usage since the algorithm started, and will take an action that could be:
-(i) \textit{continue} to execute the algorithm with the current chunk size;
-(ii) \textit{rechunk} the data to a different chunk size;
-or (iii) \textit{reset} the execution of the algorithm with a different initial chunk size.
 
-The interpreter will evaluate the agent's actions and provide a reward based on memory usage efficiency.
+For each step $t$, the agent will receive the current observation and reward and decide which is the optimal next action, which can be one of the following:
+(i) \textit{continue} to execute the graph with the current chunk size;
+(ii) \textit{rechunk} the data to a different chunk size;
+or (iii) \textit{reset} the execution of the previous task with a different chunk size.
+
+The reward for each action is calculated based on the memory usage efficiency of the previous task.
+Each step consists of the execution of a single task within the execution graph.
+By following this strategy, the agent will also learn how to deal with the side effects caused by the execution of the previous task, such as handling scenarios when the task mutates the data shape.
+In scenarios like this, it may be possible to rechunk the data to handle memory usage more efficiently.
 
 \begin{figure}[ht]
   \caption{Reinforcement learning execution diagram}
@@ -40,9 +44,3 @@ The interpreter will evaluate the agent's actions and provide a reward based on 
 Python's garbage collector can pose a problem for this research.
 Python uses reference counting as its garbage collection strategy. It is lazy and usually waits for the necessary memory to collect the garbage and free memory space.
 If the operators are \ac{CPU} memory bounded, it would be necessary to figure out how to deal with Python's garbage collector to gather memory usage when collecting memory consumption information.
-
-\subsubsection{Graph execution}
-
-Another possible problem is figuring out the entire graph's memory requirements.
-While the proposed solution allows controlling the chunk size of a specific algorithm, integrating multiple algorithms into a graph poses a challenge.
-Nevertheless, it is crucial to understand how to abstract the model agent to persist the state during the graph execution.
