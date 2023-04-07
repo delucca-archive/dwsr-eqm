@@ -3,7 +3,7 @@
 
 The Discovery~\footnote{\url{https://discovery.ic.unicamp.br/}} laboratory, located at \ac{UNICAMP}~\footnote{\url{https://ic.unicamp.br/}}, is working on a seismic analysis project with Petrobras~\footnote{\url{https://petrobras.com.br/}}.
 This project aims at developing a framework called \ac{DASF}~\cite{dasf}, which facilitates the execution of machine learning algorithms and seismic attribute operators on computing clusters.
-However, the input of the graphs created for seismic analysis is massive datasets that can contain terabytes of data.
+However, the inputs of the graphs created for seismic analysis are massive datasets that can contain terabytes of data.
 Even supercomputers do not have enough memory to handle the computation on a single node.
 Therefore, usually, the execution is distributed by using data parallelism.
 
@@ -37,8 +37,8 @@ However, some of the seismic operators used by Petrobras generate a large workin
 
 Based on this assumption, if someone predicts the memory usage of the graph, that person can use Dask's~\cite{dask} auto chunking feature to split the data into the ideal number of chunks automatically.
 Since \ac{DASF}~\cite{dasf} uses Dask~\cite{dask} under the hood, the block size parameter on \ac{DASF}~\cite{dasf} is equivalent to the chunk size parameter on Dask~\cite{dask}.
-Therefore, this research aims to develop a way to understand the memory footprint of a graph to simplify the decision of the ideal chunk size.
+Therefore, this research aims to develop a way to understand the memory footprint of a graph to simplify and automate the decision of the ideal chunk size.
 
-As a practical usage, this research aims to create a \ac{DASF}~\cite{dasf} plugin that can automatically set the optimal block size parameter during execution based on a machine learning model that can predict the memory footprint of the algorithm.
+As a practical usage, this research aims to create a \ac{DASF}~\cite{dasf} plugin that can automatically set the optimal block size parameter during execution based on a machine learning model that can predict the memory usage requirements of the graph.
 That plugin will help \ac{DASF}~\cite{dasf} users to optimize resource utilization and minimize waiting and execution time.
 The model will provide a comprehensive understanding of memory usage patterns for different block sizes and contribute to developing a more efficient data partitioning strategy to execute a graph in large-scale clusters.

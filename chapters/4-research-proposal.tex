@@ -1,11 +1,11 @@
 \section{Research proposal}
 \label{sec:research-proposal}
 
-This research proposal aims to optimize the data parallelism process by automatically updating the chunk size during the execution of an algorithm.
-The primary strategy during optimization is evaluating the algorithm's memory footprint and fitting the predicted memory usage with the current chunk size.
+This research proposal aims to optimize the data parallelism process by automatically updating the chunk size during the execution of a graph.
+The primary strategy during optimization is evaluating the memory footprint of each task within the graph and fitting the predicted memory requirements with the current chunk size.
 
 As seen in section~\ref{sec:related-work}, while there have been numerous studies on historical analysis of memory usage to predict resource requirements, they are mainly from the scheduler perspective.
-There is a significant gap in research regarding predicting the memory usage of a single algorithm, primarily focusing on data parallelism optimization.
+There is a significant gap in research regarding predicting the memory usage of a single job, primarily focusing on data parallelism optimization.
 
 \input{chapters/4.1-problem-statement.tex}
 \input{chapters/4.2-proposed-solution.tex}
