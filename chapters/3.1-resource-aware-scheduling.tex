@@ -25,10 +25,21 @@ The Resource Allocator makes more informed decisions based on the output predict
 Like E. R. Rodrigues \etal~\cite{rodrigues2016}, T. Mehmood \etal~\cite{mehmood2018} uses historical data to predict the resource requirements at a given time.
 As the input data to train the machine learning model, T. Mehmood \etal~\cite{mehmood2018} uses a dataset provided by Google containing the trace data of many jobs executed on the Google Cloud Platform.
 
-Similarly to both T. Mehmood \etal~\cite{mehmood2018} and E. R. Rodrigues \etal~\cite{rodrigues2016}, Phung \etal~\cite{phung2021} propose an approach to use past executions to achieve a smaller upper-bound on resource allocation.
-To do so, Phung \etal~\cite{phung2021} uses a trial and error method where the scheduler tries to increase the available resources for a given job until it reaches the point where the job stops failing.
+In contrast to both T. Mehmood \etal~\cite{mehmood2018} and E. R. Rodrigues \etal~\cite{rodrigues2016}, Phung \etal~\cite{phung2021} propose a heuristic approach without using past executions to achieve a smaller upper-bound on resource allocation.
+Instead of creating a model to predict the resource requirements of a given job, the authors use a trial and error method to increase the available resources for a given job until it reaches the point where the job stops failing.
+Alongside that approach,  Phung \etal~\cite{phung2021} divided the results into different levels considering the amount of information about the task provided by the user.
+According to their findings, the information the user provides about the task affects how well the scheduler can allocate the appropriate resources.
 
 On the other hand, Fang, Wang, and Sun~\cite{fang2018} take a different approach.
+The authors used a statistical method called least squares to execute task scheduling based on the prediction of memory utilization and optimize Hadoop~\cite{hadoop} parameters.
+The experiments conducted in this paper involve varying data block sizes and degrees of map parallelism.
+The results of these experiments demonstrate that the system's performance improves as the degree of map parallelism parameter increases until it reaches a certain threshold.
+Beyond this threshold, the performance declines due to the increased memory pressure on the compute node.
+Finally, the paper introduces a task allocation mechanism that uses historical memory usage data of compute nodes and a least squares simulation curve to predict memory usage in the next phase.
+The scheduling of new tasks on the cluster is associated with this.
+By doing so, the mechanism aims to maximize the efficient use of memory space while preventing excessive memory pressure and subsequent reduction in computational performance.
+
+Results show that the task allocation mechanism based on memory utilization prediction outperforms Hadoop's default task allocation mechanism. The performance improvement is achieved by dynamically adjusting the allocation of tasks according to the memory state of the nodes. The proposed mechanism reduces the average execution time by 6.625 seconds and enhances the performance by 4.25% compared to Hadoop's default task allocation mechanism. This demonstrates that the task scheduling mechanism based on the prediction of memory utilization has the potential to optimize the performance of Hadoop-based systems.
 Instead of using historical data to predict the exact amount of resources required, the authors use a machine learning model to predict the current memory pressure of a given cluster.
 Their research is coupled with the Hadoop~\cite{hadoop} framework and analyzes the status of all active jobs before submitting a new one on the same cluster.
 Instead of predicting the resource requirements of a single job, this approach focuses on predicting the cluster's overall performance.
