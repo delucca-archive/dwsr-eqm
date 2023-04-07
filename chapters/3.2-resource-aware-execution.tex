@@ -2,9 +2,11 @@
 \label{subsec:resource-aware-execution}
 
 D. Duplyakin \etal~\cite{duplyakin2018} take a different approach to evaluate the resource usage of a given algorithm.
-Instead of using the execution history to predict the expected requirements to handle resource allocation efficiently, they try to incrementally model the memory usage of the algorithm using an active learning approach.
-Their discovery is essential since they successfully demonstrated that it is possible to integrate active learning with Gaussian process regression to explore the resource usage of a given algorithm.
-However, their approach is specific to their use case, but a more general approach can explore the same concept.
+They demonstrate the use of \ac{AL}~\cite{active-learning} combined with \ac{GPR}~\cite{gaussian-process-regression} for optimizing sequences of parallel computer experiments.
+The authors developed and experimentally evaluated a cost-efficient and memory-aware algorithm that guides experimentation in a 5-dimensional input space of machine-specific, numerical, and physical parameters.
+D. Duplyakin \etal~\cite{duplyakin2018} key contribution is the development and experimental evaluation of a cost-efficient and memory-aware algorithm for \ac{AL}.
+This algorithm learns from its mistakes, improving its ability to avoid simulations that violate memory constraints as the learning process evolves.
+This way, it helps guide parameter choices when running a series of simulations in parameter sweeps, performance studies, or optimization and uncertainty quantification analysis settings.
 
 Following a similar perspective, C. Tang \etal~\cite{tang2021} proposes a method to predict the resource usage of a given query.
 Their approach was developed inside Twitter~\footnote{https://twitter.com/} and aimed to simplify calculating the resource usage of SQL queries.

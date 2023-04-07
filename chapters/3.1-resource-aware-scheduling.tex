@@ -59,6 +59,12 @@ The main limitation of this approach is the requirement of building a training d
 Due to this fact, this approach is only suitable for the recurrent execution of specific algorithms, changing only the input data and a few run parameters.
 
 Finally, A. V. Goponenko \etal~\cite{goponenko2020} focuses on a different perspective.
-Their work proves resource-aware scheduling can be more effective than traditional scheduling algorithms.
-They have integrated their tool into Slurm, considering resource requirements while scheduling new jobs.
+The adaptive scheduling strategy presented by the authors aims to optimize the execution of jobs by considering the resource requirements of each job and the real-time utilization of resources.
+The strategy is focused on spreading the system's access evenly over time to achieve better performance.
+The approach's core idea is workload-dependent utilization targets, different from the conventional constant resource utilization limit.
 During the research, the authors discovered that their test workload executed 9.4\% faster than the original scheduling, with more efficient usage of the cluster resources.
+In general, A. V. Goponenko \etal~\cite{goponenko2020} estimate the job duration and rate based on previous runs of similar jobs, corresponding to the current system state.
+They use the estimated values as resource requirements for the job to maintain the system throughput.
+By applying this adaptive scheduling strategy, the scheduler can dynamically adjust the resource allocation based on the current workload, potentially improving the execution time of the job queue.
+The authors tested their approach through simulations, demonstrating this strategy's feasibility and efficiency.
+It is important to note that this work does not involve a machine learning model but rather an adaptive scheduling strategy evaluated through simulations.
