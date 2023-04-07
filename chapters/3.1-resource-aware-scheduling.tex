@@ -39,22 +39,18 @@ Finally, the paper introduces a task allocation mechanism that uses historical m
 The scheduling of new tasks on the cluster is associated with this.
 By doing so, the mechanism aims to maximize the efficient use of memory space while preventing excessive memory pressure and subsequent reduction in computational performance.
 
-Results show that the task allocation mechanism based on memory utilization prediction outperforms Hadoop's default task allocation mechanism. The performance improvement is achieved by dynamically adjusting the allocation of tasks according to the memory state of the nodes. The proposed mechanism reduces the average execution time by 6.625 seconds and enhances the performance by 4.25% compared to Hadoop's default task allocation mechanism. This demonstrates that the task scheduling mechanism based on the prediction of memory utilization has the potential to optimize the performance of Hadoop-based systems.
-Instead of using historical data to predict the exact amount of resources required, the authors use a machine learning model to predict the current memory pressure of a given cluster.
-Their research is coupled with the Hadoop~\cite{hadoop} framework and analyzes the status of all active jobs before submitting a new one on the same cluster.
-Instead of predicting the resource requirements of a single job, this approach focuses on predicting the cluster's overall performance.
-
 All the research discussed so far focus on handling proper resource allocation within the scheduler.
 Although effective, they all require training with historical data of incoming jobs.
 Both the required amount of historical data and the focus on resource allocation based on a heterogeneous pool of incoming jobs limit the usage of those approaches to large-scale clusters.
 Using those approaches to predict the memory requirements of a single job is counterproductive since each job would require a different training dataset.
 
-Considering this limitation, Ferreira da Silva~\etal~\cite{ferreira2013} proposes a machine learning model that uses a clustering approach to evaluate the input data and predict the resource requirements of a given job.
-Their approach has high accuracy, but the results vary a lot based on the size and density of the input itself.
+Considering this limitation, Ferreira da Silva~\etal~\cite{ferreira2013} proposes using the \ac{MAPE-K}~\cite{mapek} loop as an online estimator based on the workflow execution characteristics.
+The authors proposed a manual profiling process identifying correlations between task need parameters and input data size.
+Considering a scenario with no correlations, the authors proposed a density-based clustering to identify groups of high-density areas.
+Their approach has high accuracy but requires a manual profiling process to identify the correlations between the input data and the task needs.
 
 During their research, Ferreira da Silva \etal~\cite{ferreira2013} discovered that smaller datasets have a higher correlation rate between the parameters the clustering algorithm extracts and the resource consumption itself.
 This observation is essential since it shows that it is possible to use input data features to predict a given job's resource requirements.
-As the final goal of their research, Ferreira da Silva \etal~\cite{ferreira2013} created an online estimator tool designed explicitly to be used by schedulers to improve their scheduling process.
 
 Like Ferreira da Silva \etal~\cite{ferreira2013}, B. T. Shealy \etal~\cite{shealy2021} try to extract features from the components of the execution in order to predict resource consumption.
 Instead of gathering features only from the input data, B. T. Shealy \etal~\cite{shealy2021} also uses a set of user-defined run parameters as possible features to train the model.
