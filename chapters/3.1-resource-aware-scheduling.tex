@@ -12,12 +12,17 @@ Most of the research done so far focuses only on the scheduler perspective, usin
 E. R. Rodrigues \etal~\cite{rodrigues2016} present a machine learning model that can easily be integrated into a scheduler to predict the resource requirements of a given task when executing on a cluster.
 Their work mainly focuses on the scheduler perspective since it uses past executions by the user to predict the resource requirements for future jobs.
 While submitting a new job to the scheduler, the user must provide a manual estimate.
-The authors use this estimate, alongside past executions, to predict the actual resource requirements of the job.
+The authors use this estimate, alongside past executions by the same user, to predict the actual resource requirements of the job by using a polling strategy with many different machine-learning models.
+On their pool, they use linear models, multilayer perceptrons, k-nearest neighbors, decision trees, and random forests.
 Although effective, this approach is vulnerable to spurious correlations since past executions by the same user from other jobs can influence the prediction.
 
-T. Mehmood \etal~\cite{mehmood2018} present an ensemble machine learning model that can predict the expected resource usage of a cloud provider.
-That estimate is calculated based on the resource usage of recent tasks submitted to that provider.
-Like E. R. Rodrigues \etal~\cite{rodrigues2016}, T. Mehmood \etal~\cite{mehmood2018} uses past executions to predict the resource requirements at a given time.
+T. Mehmood \etal~\cite{mehmood2018} propose an ensemble machine learning model that can predict the expected resource usage of a cloud provider.
+The workload prediction can refer to various aspects such as job inter-arrival time, aggregated resource request, CPU usage, memory usage, VM load, or host load. 
+The proposed solution has three modules: Resource Manager, Prediction module, and Resource Allocator.
+The Resource Manager maintains a database of resource usage information obtained from monitoring physical resources and task requests.
+The Prediction module uses an ensemble model based on the stacking mechanism, which includes K Nearest Neighbor and Decision Tree as base classifiers.
+The Resource Allocator makes more informed decisions based on the output prediction, defined by high, medium, and low usage.
+Like E. R. Rodrigues \etal~\cite{rodrigues2016}, T. Mehmood \etal~\cite{mehmood2018} uses historical data to predict the resource requirements at a given time.
 As the input data to train the machine learning model, T. Mehmood \etal~\cite{mehmood2018} uses a dataset provided by Google containing the trace data of many jobs executed on the Google Cloud Platform.
 
 Similarly to both T. Mehmood \etal~\cite{mehmood2018} and E. R. Rodrigues \etal~\cite{rodrigues2016}, Phung \etal~\cite{phung2021} propose an approach to use past executions to achieve a smaller upper-bound on resource allocation.
