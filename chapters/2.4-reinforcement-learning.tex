@@ -34,7 +34,7 @@ In contrast to on-policy methods, \emph{off-policy methods} enable the agent to 
 This approach provides more flexibility, as the agent can learn from the experiences of other agents or explore different policies simultaneously.
 Q-learning~\cite{watkins1992} and \ac{DDPG}~\cite{wang2022} are examples of off-policy algorithms.
 
-According to Sutton and Barto~\cite{sutton1998}, the critical steps for the process of reinforcement learning are:
+The critical steps for the process of reinforcement learning are~\cite{sutton1998}:
 (i) initialization, when the agent starts in an initial state and initializes its learning parameters, such as the action-value function or policy;
 (ii) action selection, when the agent chooses an action based on its current policy or action-value function, often incorporating exploration strategies like epsilon-greedy or softmax action selection;
 (iii) environment interaction, when the agent performs the chosen action, and the environment responds by providing a reward and transitioning to a new state;

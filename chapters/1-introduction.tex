@@ -2,26 +2,27 @@
 \label{sec:introduction}
 
 Memory management is a crucial aspect of modern computer applications~\cite{pupykina2019}.
-Some problems, such as seismic processing, are susceptible to the amount of available memory.
+Some tasks, such as seismic processing, are susceptible to the amount of available memory.
 Due to the large size of seismic data, even the most powerful supercomputers can not store the whole dataset in the memory while processing it.
 Hence, this kind of data is usually partitioned and processed in chunks.
 
-Choosing the right data partitioning strategy for some algorithms is relatively straightforward since some frameworks, like Dask~\cite{dask}, provide automatic chunking.
+Choosing the right data partitioning strategy for some algorithms is relatively straightforward.
+Since some frameworks, like Dask~\cite{dask}, provide automatic chunking; the developer can choose the proper data partitioning by setting the maximum chunk size considering the available \ac{RAM}.
 On the other hand, the optimal strategy could be more straightforward for others, usually because they require a large amount of work memory.
 For such algorithms, the amount of used memory is not limited by the input data size since they may require additional memory to store intermediate results.
 The latter is true for some seismic processing algorithms.
-Therefore the data partitioning strategy is usually defined after a series of trials and errors.
+Therefore, defining the optimal data partitioning strategy means testing with multiple chunk sizes, wasting time due to several trials and errors.
 
-While considering the current research approaches, most focus on adding a new component to the scheduler to predict memory usage and properly allocate cluster resources.
-Although some \ac{HPC} algorithms usually rely on a scheduler to orchestrate the execution of the tasks, it is not possible to use the existing tools to optimize the data partitioning prior to the execution of the algorithm.
+Most current research approaches focus on adding a new component to the scheduler to predict memory usage and properly allocate cluster resources.
+Although some \ac{HPC} algorithms usually rely on a scheduler to orchestrate the execution of the tasks, it is not possible to use the existing tools to optimize the data partitioning before the execution of the algorithm.
 
-This research proposal suggests the creation of an efficient data partitioning strategy for data parallelism.
+This research proposal suggests creating an efficient data partitioning strategy for data parallelism.
 The proposed strategy is a machine-learning model based on the algorithm's memory footprint.
 By using reinforcement learning, this model can optimize the chunk size for a given amount of available memory during runtime.
-That particular approach allows rechunking the data during the execution of the graph, taking into account the expected memory usage for the upcoming tasks of the same graph and allowing the usage of the available memory more efficiently.
+That particular approach allows data rechunking during the execution of the graph, taking into account the expected memory usage for the upcoming tasks of the same graph and allowing the use of the available memory more efficiently.
 This approach may be practical not only for seismic algorithms but also for any other algorithm that has predictable memory usage.
 
-The expected result of this research is to implement a model capable of discovering the relationship between the input data shape and the algorithm's memory footprint.
+The expected result of this research is a model capable of discovering the relationship between the input data shape and the algorithm's memory footprint.
 This tool can be used by frameworks like Dask~\cite{dask} to enhance their automatic chunking strategy, leading to more efficient data partitioning.
 
 The organization of the following sections is as follows:

@@ -3,7 +3,7 @@
 
 Most seismic operators are tensorial algorithms that execute calculations for each part of the input data.
 Due to this fact, it is safe to assume that there might be a relationship between the memory usage of an algorithm and the shape of the input itself.
-This research plans to create a reinforcement learning model that can optimize the chunking process by considering each task's memory footprint and adjusting the chunk size during the execution of the graph.
+This research plans to create a reinforcement learning model to optimize the chunking process by adjusting the chunk size during the execution of the graph, considering each task's memory footprint.
 
 There are two different ways to implement the proposed solution:
 
@@ -12,7 +12,7 @@ There are two different ways to implement the proposed solution:
   \item \textbf{Generic graph model:} create a single model capable of being graph-agnostic, considering the source code as a feature to describe the state during optimization.
 \end{enumerate}
 
-Although creating a generic model is more flexible, coding a domain-specific model will allow us to explore all possible limitations in a more controlled environment.
+Although creating a generic model is more flexible, coding a domain-specific model allows us to explore all possible limitations in a more controlled environment.
 While coding the model, one of the first challenges is exploring which features may describe the current environment state for the optimization.
 As a first hypothesis, the input data's shape and size may be the most relevant features since a large memory footprint is usually related to storing intermediate results.
 

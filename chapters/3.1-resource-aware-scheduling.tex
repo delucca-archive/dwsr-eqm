@@ -3,7 +3,7 @@
 
 Pupykina and Agosta~\cite{pupykina2019} present a broad overview of the memory management field until 2019.
 According to the authors, the main challenge in predicting memory usage is knowing the memory access patterns within an application.
-Most current research focuses on using machine learning techniques to bypass this problem.
+Most current research focuses on using machine learning techniques to address this problem.
 Although this approach has been successful, it can only predict the overall resource usage of a whole workload rather than the resource usage of a single task.
 
 The observation made by Pupykina and Agosta~\cite{pupykina2019} is visible while evaluating recent work.
@@ -46,7 +46,7 @@ Using those approaches to predict the memory requirements of a single job is cou
 
 Considering this limitation, Ferreira da Silva~\etal~\cite{ferreira2013} proposes using the \ac{MAPE-K}~\cite{mapek} loop as an online estimator based on the workflow execution characteristics.
 The authors proposed a manual profiling process identifying correlations between task need parameters and input data size.
-Considering a scenario with no correlations, the authors proposed a density-based clustering to identify groups of high-density areas.
+wConsidering a scenario with no correlations, the authors proposed a density-based clustering to identify groups of high-density areas.
 Their approach has high accuracy but requires a manual profiling process to identify the correlations between the input data and the task needs.
 
 During their research, Ferreira da Silva \etal~\cite{ferreira2013} discovered that smaller datasets have a higher correlation rate between the parameters the clustering algorithm extracts and the resource consumption itself.

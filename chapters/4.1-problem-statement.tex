@@ -24,16 +24,16 @@ The third scenario (on the right) divides the data into smaller parts, minimizin
   }
 \end{figure}
 
-While executing the graph, the developer must manually set the block size parameter.
+While executing the graph, the user must manually set the block size parameter.
 Setting a large value may lead to memory issues and cause significant delays due to the trial-and-error nature of the execution flow.
 Since Petrobras uses supercomputers to execute those graphs, this delay may be even more significant considering the time it takes to submit a job due to the queue waiting time.
 
 On the other hand, setting a small block size value may increase the execution time due to network and scheduler overhead.
 Since Petrobras has many graphs to execute, and the complete execution of each usually takes a long time, optimizing the block size parameter may lead to considerable efficiency improvements by reducing the number of failed jobs on their clusters and removing the need to tune that parameter manually.
 
-Dask~\cite{dask} provides an automatic chunking feature, but it relies on the chunk size parameter, which is a static parameter defined prior to execution.
+Dask~\cite{dask} provides an automatic chunking feature, but it relies on the chunk size parameter, which is a static parameter defined before execution.
 Figuring out that parameter for algorithms that do not require a large working memory is easy since the developer can set that to a percentage of the available memory.
-However, some of the seismic operators used by Petrobras generate a large working memory during the graph execution, which makes it difficult to determine the ideal chunk size.
+However, some seismic operators used by Petrobras generate a large working memory during the graph execution, which makes it difficult to determine the ideal chunk size.
 
 Based on this assumption, if someone predicts the memory usage of the graph, that person can use Dask's~\cite{dask} auto chunking feature to split the data into the ideal number of chunks automatically.
 Since \ac{DASF}~\cite{dasf} uses Dask~\cite{dask} under the hood, the block size parameter on \ac{DASF}~\cite{dasf} is equivalent to the chunk size parameter on Dask~\cite{dask}.

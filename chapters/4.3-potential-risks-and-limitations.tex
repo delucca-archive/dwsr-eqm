@@ -8,7 +8,7 @@ This section will discuss the limitations of the proposed solution considering t
 Some algorithms may have memory usage that varies depending on the input data.
 Correlating features from the input data may not be possible if the algorithm structure contains control statements that drastically change the memory usage of the algorithm.
 
-It is essential to mention that this limitation only happens if the control statement directly affects memory allocation.
+It is worth mentioning that this limitation only happens if the control statement directly affects memory allocation.
 Even if the algorithm has many control statements that change the execution flow drastically, this limitation can be ignored if the memory allocation of the algorithm happens before those. 
 
 Either way, all the seismic operators and machine learning models used are tensorial algorithms, meaning their execution flow would not vary based on the input data.
@@ -27,7 +27,7 @@ The proposed solution currently focuses on using Python since it is the language
 
 Although Python is a popular language in the scientific community, there may be other languages of choice for some researchers.
 This solution may need to be more language-agnostic at the moment.
-However, it is possible to improve the solution to accept algorithms from any language in the future.
+However, improving the solution to accept algorithms from any language in the future is possible.
 
 In the case of the domain-specific model, it is possible to improve the training structure to accept tasks from any language by decoupling both the feature extraction and the execution of the graph from the training process.
 
